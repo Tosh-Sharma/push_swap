@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:25:16 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/15 19:02:01 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/07/15 22:03:53 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,18 @@
 #include "libft/libft.h"
 #include <stdio.h>
 
-void	sort_numbers(int *numbers, int count)
+/*	1. Put the data in an array.									*/
+/*	2. Find the longest subsequence of numbers.						*/
+/*	(Consider the list to be circularly sequential while doing so) 	*/
+/*	3. Store all the numbers of the subsequence in an array.		*/
+/*	4. Push numbers not in subsequence in the second stack. 		*/
+/*	5. Always keep second stack sorted. 							*/
+/*	6. Merge both stacks 											*/
+/*	7. Rotate to put smallest first. 								*/
+void	sort_the_numbers(int *numbers, int count)
 {
 	int	i;
+	int	*lngst_subsqnc;
 
 	i = 0;
 	printf("\nThe numbers are as below\n");
@@ -25,9 +34,10 @@ void	sort_numbers(int *numbers, int count)
 		printf("numbers[%d]: %d\n", i, numbers[i]);
 		i++;
 	}
+	lngst_subsqnc = find_lngst_subsqnc(numbers, count);
 }
 
-int	*perform_atoi(char **argv, int count)
+int	*parse_input(char **argv, int count)
 {
 	int	i;
 	int	*numbers;
@@ -42,16 +52,11 @@ int	*perform_atoi(char **argv, int count)
 	return (numbers);
 }
 
-//	Things to do in the code.
-//	1. Check if input is all numbers, if not, return Error
-//	2. Once you have numbers, insert them into the stack & start operations
-//	3. You need to write the code for sorting out the stuff
-// 	every time you do the operations, output the steps on console
 int	main(int argc, char **argv)
 {
 	int	*numbers;
 
-	numbers = perform_atoi(argv, argc - 1);
-	sort_numbers(numbers, argc - 1);
+	numbers = parse_input(argv, argc - 1);
+	sort_the_numbers(numbers, argc - 1);
 	return (0);
 }

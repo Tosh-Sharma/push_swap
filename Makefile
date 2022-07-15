@@ -39,7 +39,16 @@ LIBFT_SRC_FILES = ft_isalpha.c \
 		ft_putnbr_16.c \
 		ft_putnbr_16_caps.c \
 		ft_revstr.c \
-		ft_straddchar.c
+		ft_straddchar.c \
+		ft_lstnew.c \
+		ft_lstadd_front.c \
+		ft_lstsize.c \
+		ft_lstlast.c \
+		ft_lstadd_back.c \
+		ft_lstdelone.c \
+		ft_lstclear.c \
+		ft_lstiter.c \
+		ft_lstmap.c
 
 LIB_SRC = $(addprefix libft/, $(LIBFT_SRC_FILES))
 SRCS = 	push_swap.c \
@@ -47,8 +56,6 @@ SRCS = 	push_swap.c \
 		$(LIB_SRC)
 
 OBJS = ${SRCS:.c=.o}
-
-BONUS_OBJS = $(BONUS:.c=.o)
 
 all: ${NAME}
 

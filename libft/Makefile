@@ -39,11 +39,8 @@ SRCS = 	ft_isalpha.c \
 		ft_putnbr_16.c \
 		ft_putnbr_16_caps.c \
 		ft_revstr.c \
-		ft_straddchar.c
-
-OBJS = ${SRCS:.c=.o}
-
-BONUS =	ft_lstnew.c \
+		ft_straddchar.c \
+		ft_lstnew.c \
 		ft_lstadd_front.c \
 		ft_lstsize.c \
 		ft_lstlast.c \
@@ -53,15 +50,12 @@ BONUS =	ft_lstnew.c \
 		ft_lstiter.c \
 		ft_lstmap.c
 
-BONUS_OBJS = $(BONUS:.c=.o)
+OBJS = ${SRCS:.c=.o}
 
 all: ${NAME}
 
 ${NAME}: ${OBJS}
 	ar rcs ${NAME} ${OBJS}
-
-bonus:	${OBJS} ${BONUS_OBJS}
-	ar rcs ${NAME} ${OBJS} ${BONUS_OBJS}
 
 %.o: %.c
 	${CC} ${CFLAGS} -o ${@} -c ${@:.o=.c}
