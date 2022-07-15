@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:25:16 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/14 17:39:56 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/07/15 19:02:01 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,32 @@
 #include "libft/libft.h"
 #include <stdio.h>
 
-void	sort_numbers(int *numbers)
+void	sort_numbers(int *numbers, int count)
 {
+	int	i;
+
+	i = 0;
+	printf("\nThe numbers are as below\n");
+	while (i < count)
+	{
+		printf("numbers[%d]: %d\n", i, numbers[i]);
+		i++;
+	}
 }
 
-int	perform_atoi(char **argv, int *numbers)
+int	*perform_atoi(char **argv, int count)
 {
-	return (0);
+	int	i;
+	int	*numbers;
+
+	i = 1;
+	numbers = (int *)malloc(sizeof(int) * count);
+	while (i <= count)
+	{
+		numbers[i - 1] = ft_atoi(argv[i], numbers);
+		i++;
+	}
+	return (numbers);
 }
 
 //	Things to do in the code.
@@ -28,13 +47,11 @@ int	perform_atoi(char **argv, int *numbers)
 //	2. Once you have numbers, insert them into the stack & start operations
 //	3. You need to write the code for sorting out the stuff
 // 	every time you do the operations, output the steps on console
-int	push_swap(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	int	*numbers;
 
-	if (perform_atoi(argv, numbers) == 0)
-		ft_printf("Error\n");
-	else
-		sort_numbers(numbers);
+	numbers = perform_atoi(argv, argc - 1);
+	sort_numbers(numbers, argc - 1);
 	return (0);
 }

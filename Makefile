@@ -1,5 +1,5 @@
-NAME ?= push_swap
-CC ?= gcc
+NAME = push_swap
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 LIBFT_SRC_FILES = ft_isalpha.c \
 		ft_isdigit.c \
@@ -43,6 +43,7 @@ LIBFT_SRC_FILES = ft_isalpha.c \
 
 LIB_SRC = $(addprefix libft/, $(LIBFT_SRC_FILES))
 SRCS = 	push_swap.c \
+		helpers/parsers.c \
 		$(LIB_SRC)
 
 OBJS = ${SRCS:.c=.o}
@@ -53,10 +54,7 @@ all: ${NAME}
 
 ${NAME}: ${OBJS}
 	make -C ./libft
-	ar rcs ${NAME} ${OBJS}
-
-bonus:	${OBJS} ${BONUS_OBJS}
-	ar rcs ${NAME} ${OBJS} ${BONUS_OBJS}
+	${CC} ${CFLAGS} -o ${@} ${^} libft/libft.a
 
 %.o: %.c
 	${CC} ${CFLAGS} -o ${@} -c ${@:.o=.c}

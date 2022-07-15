@@ -1,7 +1,5 @@
 *.o
 *.gch
-libft/libft.a
-*/*.a
+*.a
 .vscode
 .out
-push_swap

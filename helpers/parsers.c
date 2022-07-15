@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   parsers.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/13 18:43:19 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/15 14:30:42 by tsharma          ###   ########.fr       */
+/*   Created: 2022/07/15 13:31:27 by tsharma           #+#    #+#             */
+/*   Updated: 2022/07/15 18:57:29 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../libft/libft.h"
 
-# include <stdarg.h>
-# include <stdlib.h>
-
-void	exit_program(int *numbers);
-
-#endif
+void	exit_program(int *numbers)
+{
+	free(numbers);
+	ft_putstr_fd("Error\n", 1);
+	exit(0);
+}
