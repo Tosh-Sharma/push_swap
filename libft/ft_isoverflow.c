@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_isoverflow.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/13 18:43:19 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/17 17:55:12 by tsharma          ###   ########.fr       */
+/*   Created: 2022/07/17 19:38:52 by tsharma           #+#    #+#             */
+/*   Updated: 2022/07/17 19:52:00 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
+#include <stdio.h>
 
-# include <stdarg.h>
-# include <stdlib.h>
-
-typedef struct s_array
+int	is_overflow(char *str, int is_neg)
 {
-	int	*arr;
-	int	size;
-}	t_array;
-
-void	exit_program(int *numbers);
-t_array	*fnd_lngst_sbsqnc(int *numbers, int size);
-
-#endif
+	printf("str is %s\n", str);
+	if (ft_strlen(str) > 10)
+		return (1);
+	if (ft_strlen == 10)
+	{
+		if (str[0] > 50)
+			return (1);
+		else if (str[0] == 50)
+		{
+		}
+	}
+	return (0);
+}

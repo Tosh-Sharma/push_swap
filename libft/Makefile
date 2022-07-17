@@ -29,6 +29,7 @@ SRCS = 	ft_isalpha.c \
 		ft_strtrim.c \
 		ft_split.c \
 		ft_itoa.c \
+		ft_isoverflow.c \
 		ft_strmapi.c \
 		ft_striteri.c \
 		ft_putchar_fd.c \

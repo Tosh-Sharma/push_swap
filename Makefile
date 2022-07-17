@@ -29,6 +29,7 @@ LIBFT_SRC_FILES = ft_isalpha.c \
 		ft_strtrim.c \
 		ft_split.c \
 		ft_itoa.c \
+		ft_isoverflow.c \
 		ft_strmapi.c \
 		ft_striteri.c \
 		ft_putchar_fd.c \
@@ -53,6 +54,7 @@ LIBFT_SRC_FILES = ft_isalpha.c \
 LIB_SRC = $(addprefix libft/, $(LIBFT_SRC_FILES))
 SRCS = 	push_swap.c \
 		helpers/parsers.c \
+		lngst_sbsqnc.c \
 		$(LIB_SRC)
 
 OBJS = ${SRCS:.c=.o}

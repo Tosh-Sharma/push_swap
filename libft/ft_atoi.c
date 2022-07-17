@@ -6,11 +6,13 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 17:45:12 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/15 14:29:59 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/07/17 19:50:56 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+#include "libft.h"
+#include <stdio.h>
 
 int	ft_isspace(char i)
 {
@@ -38,9 +40,12 @@ int	calculate_number(const char *str, int is_neg, int *numbers)
 
 	i = 0;
 	num = 0;
+	// if (is_overflow(*str, is_neg) == 1)
+	// 	exit_program(numbers);
 	while (str[i] >= 48 && str[i] <= 57)
 	{
 		num = (num * 10) + (str[i] - 48);
+		printf("Number is %d\n", num);
 		i++;
 	}
 	if ((str[i] < 48 || str[i] > 57) && str[i] != 0)

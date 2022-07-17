@@ -6,12 +6,12 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 14:34:17 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/16 19:48:03 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/07/17 18:43:59 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
+// #include <stdio.h>
 
 int	ceil_index(int *input, int *temp, int end, int s)
 {
@@ -64,7 +64,29 @@ int	traverse_array(int *numbers, int *res, int *temp, int size)
 	return (len);
 }
 
-void	fnd_lngst_sbsqnc(int *numbers, int size)
+// Length of LIS array in below function is len + 1.
+t_array	*get_subsqnc(int *res, int *numbers, int len, int index)
+{
+	int		*output;
+	int		i;
+	t_array	*subsqnc;
+
+	i = len;
+	output = (int *)malloc(sizeof(int) * (len + 1));
+	while (index != -1)
+	{
+		output[i] = numbers[index];
+		index = res[index];
+		i--;
+	}
+	free(res);
+	subsqnc = (t_array *)malloc(sizeof(t_array));
+	subsqnc->arr = output;
+	subsqnc->size = len + 1;
+	return (subsqnc);
+}
+
+t_array	*fnd_lngst_sbsqnc(int *numbers, int size)
 {
 	int	*temp;
 	int	*res;
@@ -83,32 +105,25 @@ void	fnd_lngst_sbsqnc(int *numbers, int size)
 	temp[0] = 0;
 	len = traverse_array(numbers, res, temp, size);
 	index = temp[len];
-	while (index != -1)
-	{
-		printf("%d ", numbers[index]);
-		index = res[index];
-	}
-	free(res);
 	free(temp);
+	return (get_subsqnc(res, numbers, len, index));
 }
 
-int	main(void)
-{
-	int	numbers[11] = { 3, 4, -1, 5, 8, 2, 3, 12, 7, 9, 10};
-	int	i;
-	int	arr_size;
+// int	main(void)
+// {
+// 	int	numbers[11] = { 3, 4, -1, 5, 8, 2, 3, 12, 7, 9, 10};
+// 	int	i;
+// 	int	arr_size;
 
-	i = 0;
-	arr_size = sizeof(numbers) / sizeof(numbers[0]);
-	printf("Size of calculates array sizes\nArray_size is %d\n", arr_size);
-	printf("The unsorted numbers are as below\n");
-	while (i < 11)
-	{
-		printf("%d ", numbers[i]);
-		i++;
-	}
-	printf("\n");
-	fnd_lngst_sbsqnc(numbers, 11);
-	system("leaks a.out");
-	return (0);
-}
+// 	i = 0;
+// 	printf("The unsorted numbers are as below\n");
+// 	while (i < 11)
+// 	{
+// 		printf("%d ", numbers[i]);
+// 		i++;
+// 	}
+// 	printf("\n");
+// 	fnd_lngst_sbsqnc(numbers, 11);
+// 	system("leaks a.out");
+// 	return (0);
+// }
