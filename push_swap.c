@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:25:16 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/18 18:55:24 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/07/18 19:41:12 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,18 @@
 #include "libft/libft.h"
 #include <stdio.h>
 
-/*	1. Put the data in an array.									*/
-/*	2. Find the longest subsequence of numbers.						*/
-/*	(Consider the list to be circularly sequential while doing so) 	*/
-/*	3. Store all the numbers of the subsequence in an array.		*/
-/*	4. Push numbers not in subsequence in the second stack. 		*/
-/*	5. Always keep second stack sorted. 							*/
-/*	6. Merge both stacks 											*/
-/*	7. Rotate to put smallest first. 								*/
+/*	1. Ensure the data is numbers without any repitition.					*/
+/*	2. Ensure the data set is numbers only in int range						*/
+/*	3. Put the data in an array.											*/
+/*	Write code for creation of moves in the array according to the rules	*/
+/*	Write code for creating the stacks A and B.								*/
+/*	4. Find the longest subsequence of numbers.								*/
+/*	4* Did you consider the list to be circularly sequential.				*/
+/*	5. Store all the numbers of the subsequence in an array.				*/
+/*	6. Push numbers not in subsequence in the second stack. 				*/
+/*	7. Always keep second stack sorted. 									*/
+/*	8. Merge both stacks 													*/
+/*	9. Rotate to put smallest first. 										*/
 void	sort_the_numbers(int *numbers, int count)
 {
 	int		i;
