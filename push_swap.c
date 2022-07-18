@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:25:16 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/17 18:48:57 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/07/18 18:55:24 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	*parse_input(char **argv, int count)
 	numbers = (int *)malloc(sizeof(int) * count);
 	while (i <= count)
 	{
-		numbers[i - 1] = ft_atoi(argv[i], numbers);
+		numbers[i - 1] = ft_superatoi(argv[i], numbers);
 		j = 0;
 		while (j < i - 1)
 		{
