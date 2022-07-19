@@ -53,7 +53,11 @@ LIBFT_SRC_FILES = ft_isalpha.c \
 
 LIB_SRC = $(addprefix libft/, $(LIBFT_SRC_FILES))
 SRCS = 	push_swap.c \
-		helpers/parsers.c \
+		helpers/parsers.c helpers/utils.c \
+		stack_moves/push.c \
+		stack_moves/swap.c \
+		stack_moves/rotate.c \
+		stack_moves/rev_rotate.c \
 		lngst_sbsqnc.c \
 		$(LIB_SRC)
 

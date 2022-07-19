@@ -1,36 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsers.c                                          :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/15 13:31:27 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/19 15:53:38 by tsharma          ###   ########.fr       */
+/*   Created: 2022/07/19 16:44:22 by tsharma           #+#    #+#             */
+/*   Updated: 2022/07/19 22:56:26 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 
-int	*initialize_input(char **argv, int count)
+void	ft_swap(int *a, int *b)
 {
-	int	i;
-	int	j;
-	int	*numbers;
+	int	temp;
 
-	i = 1;
-	numbers = (int *)malloc(sizeof(int) * count);
-	while (i <= count)
-	{
-		numbers[i - 1] = ft_superatoi(argv[i], numbers);
-		j = 0;
-		while (j < i - 1)
-		{
-			if (numbers[j] == numbers[i - 1])
-				exit_program(numbers);
-			j++;
-		}
-		i++;
-	}
-	return (numbers);
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+void	swap(int *array)
+{
+	ft_swap(&array[0], &array[1]);
+}
+
+void	swap_a(int *array)
+{
+	swap(array);
+	ft_putstr_fd("sa\n", 1);
+}
+
+void	swap_b(int *array)
+{
+	swap(array);
+	ft_putstr_fd("sa\n", 1);
+}
+
+void	swap_ss(int *a, int *b)
+{
+	ft_swap(&a[0], &a[1]);
+	ft_swap(&b[0], &b[1]);
+	ft_putstr_fd("ss\n", 1);
 }

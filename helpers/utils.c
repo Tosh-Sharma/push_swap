@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsers.c                                          :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/15 13:31:27 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/19 15:53:38 by tsharma          ###   ########.fr       */
+/*   Created: 2022/07/19 15:04:46 by tsharma           #+#    #+#             */
+/*   Updated: 2022/07/19 16:49:54 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 
-int	*initialize_input(char **argv, int count)
+void	exit_program(int *a)
 {
-	int	i;
-	int	j;
-	int	*numbers;
+	free(a);
+	ft_putstr_fd("Error\n", 1);
+	exit(0);
+}
 
-	i = 1;
-	numbers = (int *)malloc(sizeof(int) * count);
-	while (i <= count)
+int	*initialize_stack_b(int count, int *a)
+{
+	int	*array;
+
+	array = (int *)malloc(sizeof(int) * count);
+	if (!array)
 	{
-		numbers[i - 1] = ft_superatoi(argv[i], numbers);
-		j = 0;
-		while (j < i - 1)
-		{
-			if (numbers[j] == numbers[i - 1])
-				exit_program(numbers);
-			j++;
-		}
-		i++;
+		free(a);
+		exit(0);
 	}
-	return (numbers);
+	return (array);
 }

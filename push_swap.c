@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:25:16 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/18 19:41:12 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/07/19 16:55:49 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,61 +14,38 @@
 #include "libft/libft.h"
 #include <stdio.h>
 
-/*	1. Ensure the data is numbers without any repitition.					*/
-/*	2. Ensure the data set is numbers only in int range						*/
-/*	3. Put the data in an array.											*/
-/*	Write code for creation of moves in the array according to the rules	*/
-/*	Write code for creating the stacks A and B.								*/
-/*	4. Find the longest subsequence of numbers.								*/
-/*	4* Did you consider the list to be circularly sequential.				*/
-/*	5. Store all the numbers of the subsequence in an array.				*/
-/*	6. Push numbers not in subsequence in the second stack. 				*/
-/*	7. Always keep second stack sorted. 									*/
-/*	8. Merge both stacks 													*/
-/*	9. Rotate to put smallest first. 										*/
-void	sort_the_numbers(int *numbers, int count)
+/*	1. 	Ensure the data is numbers without any repitition.					*/
+/*	2. 	Ensure the data set is numbers only in int range					*/
+/*	3. 	Put the data in an array.											*/
+/*	4. 	Write code for creating the stacks A and B.							*/
+/*	5. 	Write code for creating	the moves like push, swap, rotate, etc.		*/
+/*	6. 	Find the longest subsequence of numbers.							*/
+/*	7. 	Did you consider the list to be circularly sequential.				*/
+/*	8. 	Store all the numbers of the subsequence in an array.				*/
+/*	9. 	Push numbers not in subsequence in the second stack. 				*/
+/*	10. Always keep second stack sorted. 									*/
+/*	11. Merge both stacks 													*/
+/*	Is point number 12 needed or not? 										*/
+/*	12. Rotate to put smallest first. 										*/
+
+void	sort_stacks(int *a, int count)
 {
-	int		i;
 	t_array	*subsqnc;
+	int		*b;
 
-	i = 0;
-	printf("\nThe numbers are as below\n");
-	while (i < count)
-	{
-		printf("numbers[%d]: %d\n", i, numbers[i]);
-		i++;
-	}
-	subsqnc = fnd_lngst_sbsqnc(numbers, count);
-}
-
-int	*parse_input(char **argv, int count)
-{
-	int	i;
-	int	j;
-	int	*numbers;
-
-	i = 1;
-	numbers = (int *)malloc(sizeof(int) * count);
-	while (i <= count)
-	{
-		numbers[i - 1] = ft_superatoi(argv[i], numbers);
-		j = 0;
-		while (j < i - 1)
-		{
-			if (numbers[j] == numbers[i - 1])
-				exit_program(numbers);
-			j++;
-		}
-		i++;
-	}
-	return (numbers);
+	b = initialize_stack_b(count, a);
+	subsqnc = fnd_lngst_sbsqnc(a, count);
+	push_items_in_b(a, b, subsqnc, count);
+	merge_stacks(a, b);
+	rotate_to_smallest_first(a);
 }
 
 int	main(int argc, char **argv)
 {
-	int	*numbers;
+	int	*a;
+	int	*lngst_sbsqnc;
 
-	numbers = parse_input(argv, argc - 1);
-	sort_the_numbers(numbers, argc - 1);
+	a = initialize_input(argv, argc - 1);
+	sort_stacks(a, argc - 1);
 	return (0);
 }

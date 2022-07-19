@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:43:19 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/17 17:55:12 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/07/19 16:04:18 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,7 @@ typedef struct s_array
 
 void	exit_program(int *numbers);
 t_array	*fnd_lngst_sbsqnc(int *numbers, int size);
+int		*initialize_input(char **argv, int count);
+int		*initialize_stack_b(int count, int *a);
 
 #endif
