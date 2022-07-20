@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:43:19 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/19 16:04:18 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/07/20 21:05:01 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdarg.h>
 # include <stdlib.h>
+# include "libft/libft.h"
 
 typedef struct s_array
 {
