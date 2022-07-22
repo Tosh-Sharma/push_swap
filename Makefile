@@ -58,7 +58,10 @@ SRCS = 	push_swap.c \
 		stack_moves/swap.c \
 		stack_moves/rotate.c \
 		stack_moves/rev_rotate.c \
-		lngst_sbsqnc.c \
+		core/lngst_sbsqnc.c \
+		# core/merge_stacks.c \
+		# core/push_items_in_b.c \
+		# core/rotate_to_smallest_first.c \
 		$(LIB_SRC)
 
 OBJS = ${SRCS:.c=.o}

@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   print_array.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/19 15:04:46 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/22 21:53:54 by tsharma          ###   ########.fr       */
+/*   Created: 2022/07/22 17:31:38 by tsharma           #+#    #+#             */
+/*   Updated: 2022/07/22 18:09:39 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
-#include "../push_swap.h"
+#include <stdio.h>
 
-void	exit_program(int *a)
+void	print_array(int *array, int size)
 {
-	free(a);
-	ft_putstr_fd("Error\n", 1);
-	exit(0);
-}
+	int	i;
 
-t_array	*initialize_stack_b(t_array *a)
-{
-	t_array	*b;
-
-	b = (t_array *)malloc(sizeof(t_array));
-	b->arr = (int *)malloc(sizeof(int) * a->size);
-	if (!b->arr)
+	i = 0;
+	printf("The array is: \n");
+	while (i < size)
 	{
-		free(a->arr);
-		free(a);
-		exit(0);
+		printf("%d ", array[i]);
+		i++;
 	}
-	b->size = a->size;
-	return (b);
+	printf("\n");
 }

@@ -6,19 +6,22 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 13:31:27 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/19 15:53:38 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/07/22 21:52:31 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../push_swap.h"
 #include "../libft/libft.h"
 
-int	*initialize_input(char **argv, int count)
+t_array	*initialize_input(char **argv, int count)
 {
-	int	i;
-	int	j;
-	int	*numbers;
+	int		i;
+	int		j;
+	int		*numbers;
+	t_array	*a;
 
 	i = 1;
+	a = (t_array *)malloc(sizeof(t_array));
 	numbers = (int *)malloc(sizeof(int) * count);
 	while (i <= count)
 	{
@@ -32,5 +35,7 @@ int	*initialize_input(char **argv, int count)
 		}
 		i++;
 	}
-	return (numbers);
+	a->arr = numbers;
+	a->size = count;
+	return (a);
 }

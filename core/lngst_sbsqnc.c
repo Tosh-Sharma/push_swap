@@ -6,11 +6,11 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 14:34:17 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/17 18:43:59 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/07/22 21:54:10 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 // #include <stdio.h>
 
 int	ceil_index(int *input, int *temp, int end, int s)
@@ -86,7 +86,7 @@ t_array	*get_subsqnc(int *res, int *numbers, int len, int index)
 	return (subsqnc);
 }
 
-t_array	*fnd_lngst_sbsqnc(int *numbers, int size)
+t_array	*fnd_lngst_sbsqnc(t_array *a)
 {
 	int	*temp;
 	int	*res;
@@ -95,18 +95,18 @@ t_array	*fnd_lngst_sbsqnc(int *numbers, int size)
 	int	index;
 
 	i = 0;
-	res = (int *)malloc(sizeof(int) * size);
-	temp = (int *)malloc(sizeof(int) * size);
-	while (i < size)
+	res = (int *)malloc(sizeof(int) * a->size);
+	temp = (int *)malloc(sizeof(int) * a->size);
+	while (i < a->size)
 	{
 		res[i] = -1;
 		i++;
 	}
 	temp[0] = 0;
-	len = traverse_array(numbers, res, temp, size);
+	len = traverse_array(a->arr, res, temp, a->size);
 	index = temp[len];
 	free(temp);
-	return (get_subsqnc(res, numbers, len, index));
+	return (get_subsqnc(res, a->arr, len, index));
 }
 
 // int	main(void)
