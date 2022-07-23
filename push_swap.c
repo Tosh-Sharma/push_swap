@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:25:16 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/22 21:59:47 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/07/23 19:34:33 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,26 +26,10 @@
 /*	11. Merge both stacks 													*/
 /*	Is point number 12 needed or not? 										*/
 /*	12. Rotate to put smallest first. 										*/
+/*	make re && ./push_swap 3 4 5 6 1 2	*/
 
-#include <stdio.h>
-
-void	print_array(int *array, int size, char *name)
-{
-	int	i;
-
-	i = 0;
-	if (name[0] != '\0' || name != NULL)
-		printf("The %s array is: \n", name);
-	else
-		printf("The array is: \n");
-	while (i < size)
-	{
-		printf("%d ", array[i]);
-		i++;
-	}
-	printf("\n");
-}
-
+/* TODO: If subsqnc->size == a->size, do nothing */
+/* TODO: Check if smallest element is the first element or not */
 void	sort_stacks(t_array *a)
 {
 	t_array	*subsqnc;
@@ -53,8 +37,9 @@ void	sort_stacks(t_array *a)
 
 	b = initialize_stack_b(a);
 	subsqnc = fnd_lngst_sbsqnc(a);
-	print_array(subsqnc->arr, subsqnc->size, "Subsequence");
-	// push_items_in_b(a, b, subsqnc);
+	if (subsqnc->size == a->size)
+		exit(0);
+	push_items_in_b(a, b, subsqnc);
 	// merge_stacks(a, b);
 	// rotate_to_smallest_first(a);
 }
@@ -64,7 +49,6 @@ int	main(int argc, char **argv)
 	t_array	*a;
 
 	a = initialize_input(argv, argc - 1);
-	print_array(a->arr, a->size, "A");
 	sort_stacks(a);
 	return (0);
 }
