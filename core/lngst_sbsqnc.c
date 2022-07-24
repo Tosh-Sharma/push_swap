@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 14:34:17 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/22 21:54:10 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/07/23 22:38:10 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ t_array	*fnd_lngst_sbsqnc(t_array *a)
 // 	int	numbers[11] = { 3, 4, -1, 5, 8, 2, 3, 12, 7, 9, 10};
 // 	int	i;
 // 	int	arr_size;
-
+//
 // 	i = 0;
 // 	printf("The unsorted numbers are as below\n");
 // 	while (i < 11)

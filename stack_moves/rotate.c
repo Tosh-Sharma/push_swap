@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 17:57:44 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/23 18:02:05 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/07/24 16:49:28 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,28 @@ void	rotate_both(t_array *a, t_array *b)
 	ft_putstr_fd("rr\n", 1);
 }
 
+void	rotate_n_times(t_array *array, int n, char name)
+{
+	int		i;
+	void	(*func)(t_array *);
+
+	i = 0;
+	if (name == 'a')
+		func = rotate_a;
+	else
+		func = rotate_b;
+	while (i < n)
+	{
+		func(array);
+		i++;
+	}
+}
+
 // int	main(void)
 // {
 // 	int	*array;
 // 	int	i;
-
+//
 // 	array = (int *)malloc(sizeof(int) * 5);
 // 	i = 0;
 // 	while (i < 5)

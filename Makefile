@@ -63,6 +63,7 @@ SRCS = 	push_swap.c \
 		stack_moves/rev_rotate.c \
 		core/lngst_sbsqnc.c \
 		core/push_items_in_b.c \
+		core/small_mid_or_largest.c \
 		# core/merge_stacks.c \
 		# core/rotate_to_smallest_first.c \
 		$(LIB_SRC)

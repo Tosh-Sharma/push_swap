@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:43:19 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/23 18:40:38 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/07/24 16:42:44 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ typedef struct s_array
 	int	size;
 }	t_array;
 
+typedef struct array_item
+{
+	int	number;
+	int	index;
+}	t_array_item;
+
 /*	HELPERS	*/
 void	exit_program(int *numbers);
 void	print_array(int *array, int size, char *name);
@@ -37,11 +43,14 @@ t_array	*fnd_lngst_sbsqnc(t_array *a);
 void	push_items_in_b(t_array *a, t_array *b, t_array *subsqnc);
 void	merge_stacks(t_array *a, t_array *b);
 void	rotate_to_smallest_first(t_array *a);
+void	small_mid_or_largest(t_array *a, t_array *b,
+			t_array_item *smallest, t_array_item *largest);
 
 /*	ROTATE	*/
 void	rotate_a(t_array *a);
 void	rotate_b(t_array *b);
 void	rotate_both(t_array *a, t_array *b);
+void	rotate_n_times(t_array *array, int n, char name);
 
 /*	PUSH	*/
 void	push_to_a(t_array *a, t_array *b);
