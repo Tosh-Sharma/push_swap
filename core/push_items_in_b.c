@@ -6,32 +6,78 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 20:47:58 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/24 15:42:05 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/07/25 15:43:22 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	calculate_smallest_and_largest(t_array *b,
+void	find_best_spot(t_array *a, t_array *b)
+{
+	int	i;
+
+	i = 0;
+	while (i < b->size)
+	{
+		if ((i == (b->size - 1))
+			&& ((b->arr[b->size - 1] > a->arr[0])
+				&& (b->arr[0] < a->arr[0])))
+		{
+			push_to_b(a, b);
+			return ;
+		}
+		if ((b->arr[i] > a->arr[0]) && (b->arr[i + 1] < a->arr[0]))
+		{
+			bring_index_to_top_and_push(a, b, i + 1);
+			return ;
+		}
+		i++;
+	}
+}
+
+void	small_mid_or_largest(t_array *a, t_array *b,
+	t_array_item *smallest, t_array_item *largest)
+{
+	if (b->size == 1)
+	{
+		push_to_b(a, b);
+		if (b->arr[0] < b->arr[1])
+			swap_b(b->arr);
+	}
+	else
+	{
+		if (a->arr[0] > largest->number)
+			bring_index_to_top_and_push(a, b, largest->index);
+		else if (a->arr[0] < smallest->number)
+		{
+			bring_index_to_top_and_push(a, b, smallest->index);
+			swap_b(b->arr);
+		}
+		else
+			find_best_spot(a, b);
+	}
+}
+
+void	calculate_smallest_and_largest(t_array *array,
 	t_array_item *smallest, t_array_item *largest)
 {
 	int	i;
 
 	i = 0;
-	smallest->number = b->arr[0];
+	smallest->number = array->arr[0];
 	smallest->index = 0;
-	largest->number = b->arr[0];
+	largest->number = array->arr[0];
 	largest->index = 0;
-	while (i < b->size)
+	while (i < array->size)
 	{
-		if (b->arr[i] < smallest->number)
+		if (array->arr[i] < smallest->number)
 		{
-			smallest->number = b->arr[i];
+			smallest->number = array->arr[i];
 			smallest->index = i;
 		}
-		if (b->arr[i] > largest->number)
+		if (array->arr[i] > largest->number)
 		{
-			largest->number = b->arr[i];
+			largest->number = array->arr[i];
 			largest->index = i;
 		}
 		i++;
@@ -65,12 +111,12 @@ void	take_best_path(t_array *a, t_array *b)
 /*		rev_rotate depending on which is the shorter path			*/
 void	push_items_in_b(t_array *a, t_array *b, t_array *subsqnc)
 {
-	int	i;
-	int	a_size;
+	int				i;
+	int				a_size;
+	t_array_item	smallest;
+	t_array_item	largest;
 
 	a_size = a->size;
-	print_array(a->arr, a->size, "Pre A");
-	print_array(subsqnc->arr, subsqnc->size, "LIS");
 	i = 0;
 	while (1)
 	{
@@ -78,12 +124,13 @@ void	push_items_in_b(t_array *a, t_array *b, t_array *subsqnc)
 			rotate_a(a);
 		else
 			take_best_path(a, b);
-		// print_array(a->arr, a->size, "Iteration of A");
-		// print_array(b->arr, b->size, "Iteration of B");
 		i++;
 		if (i == a_size)
 			break ;
 	}
-	print_array(a->arr, a->size, "Post A");
-	print_array(b->arr, b->size, "Post B");
+	calculate_smallest_and_largest(b, &smallest, &largest);
+	if ((largest.index + 1) <= (b->size) / 2)
+		rotate_n_times(b, largest.index, 'b');
+	else
+		rev_rotate_n_times(b, b->size - largest.index, 'b');
 }

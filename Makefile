@@ -53,19 +53,15 @@ LIBFT_SRC_FILES = ft_isalpha.c \
 
 LIB_SRC = $(addprefix libft/, $(LIBFT_SRC_FILES))
 SRCS = 	push_swap.c \
-		helpers/utils.c \
-		helpers/parsers.c \
-		helpers/array_contains.c \
-		helpers/print_array.c \
+		core/lngst_sbsqnc.c \
+		core/push_items_in_b.c \
+		core/merge_stacks.c \
 		stack_moves/swap.c \
 		stack_moves/push.c \
 		stack_moves/rotate.c \
 		stack_moves/rev_rotate.c \
-		core/lngst_sbsqnc.c \
-		core/push_items_in_b.c \
-		core/small_mid_or_largest.c \
-		# core/merge_stacks.c \
-		# core/rotate_to_smallest_first.c \
+		helpers/utils.c \
+		helpers/print_array.c \
 		$(LIB_SRC)
 
 OBJS = ${SRCS:.c=.o}

@@ -6,33 +6,45 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 15:04:46 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/23 19:26:25 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/07/25 14:45:02 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 #include "../push_swap.h"
 
+// TODO: Error goes on Standard Error (FD = 2 and not 1)
 void	exit_program(int *a)
 {
 	free(a);
-	// TODO: Error goes on Standard Error (FD = 2 and not 1)
 	ft_putstr_fd("Error\n", 1);
 	exit(0);
 }
 
-t_array	*initialize_stack_b(t_array *a)
+/*	If src array contains input element, return 1. */
+/*	Else return 0. */
+int	array_contains(t_array *src, int input)
 {
-	t_array	*b;
+	int	i;
 
-	b = (t_array *)malloc(sizeof(t_array));
-	b->arr = (int *)malloc(sizeof(int) * a->size);
-	if (!b->arr)
+	i = 0;
+	while (i < src->size)
 	{
-		free(a->arr);
-		free(a);
-		exit(0);
+		if (src->arr[i] == input)
+			return (1);
+		i++;
 	}
-	b->size = 0;
-	return (b);
+	if (i == src->size)
+		return (0);
+	return (0);
+}
+
+void	bring_index_to_top_and_push(t_array *a, t_array *b,
+	int index)
+{
+	if ((index + 1) <= (b->size) / 2)
+		rotate_n_times(b, index, 'b');
+	else
+		rev_rotate_n_times(b, b->size - index, 'b');
+	push_to_b(a, b);
 }

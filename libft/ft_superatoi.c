@@ -6,14 +6,14 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 18:12:43 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/19 16:52:02 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/07/25 15:34:12 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 #include "libft.h"
 
-int	ft_isspace(char i)
+int	ft_isspace_super(char i)
 {
 	if (i == ' ' || i == '\t' || i == '\n'
 		|| i == '\v' || i == '\f' || i == '\r')
@@ -21,7 +21,7 @@ int	ft_isspace(char i)
 	return (0);
 }
 
-int	flip_if_negative(char str, int is_neg)
+int	flip_if_negative_super(char str, int is_neg)
 {
 	if (str == 45)
 	{
@@ -32,7 +32,7 @@ int	flip_if_negative(char str, int is_neg)
 	return (is_neg);
 }
 
-int	calculate_number(const char *str, int is_neg, int *a)
+int	calculate_number_super(const char *str, int is_neg, int *a)
 {
 	int	i;
 	int	num;
@@ -63,12 +63,12 @@ int	ft_superatoi(const char *str, int *a)
 
 	i = 0;
 	is_neg = 0;
-	while (ft_isspace(str[i]))
+	while (ft_isspace_super(str[i]))
 		i++;
 	if (str[i] == 45 || str[i] == 43)
 	{
-		is_neg = flip_if_negative(str[i], is_neg);
+		is_neg = flip_if_negative_super(str[i], is_neg);
 		i++;
 	}
-	return (calculate_number(&str[i], is_neg, a));
+	return (calculate_number_super(&str[i], is_neg, a));
 }
