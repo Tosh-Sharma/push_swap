@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:43:19 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/25 18:22:25 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/07/26 17:54:38 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,9 @@ void	exit_program(int *numbers);
 void	print_array(int *array, int size, char *name);
 int		array_contains(t_array *src, int input);
 void	bring_index_to_top_and_push(t_array *a, t_array *b, int index);
+void	bring_index_to_bottom_and_push(t_array *a, t_array *b, int index);
 void	rotate_index_and_push_to_a(t_array *a, t_array *b, int index);
+void	rotate_to_bottom_and_push(t_array *a, t_array *b, int index);
 
 /*	CORE ALGO	*/
 t_array	*fnd_lngst_sbsqnc(t_array *a);
@@ -44,6 +46,7 @@ void	calculate_min_max(t_array *array,
 			t_array_item *min, t_array_item *max);
 void	place_in_position(t_array *a, t_array *b,
 			t_array_item *min, t_array_item *max);
+t_array	*super_lis(t_array *a);
 
 /*	ROTATE	*/
 void	rotate_a(t_array *a);

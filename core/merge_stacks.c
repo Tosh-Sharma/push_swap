@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 20:48:11 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/25 19:32:39 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/07/26 14:23:15 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	merge_stacks(t_array *a, t_array *b)
 		if (b->arr[0] > max.number)
 			rotate_index_and_push_to_a(a, b, max.index);
 		else if (b->arr[0] < min.number)
-			rotate_index_and_push_to_a(a, b, min.index);
+			rotate_to_bottom_and_push(a, b, min.index);
 		else
 			find_best_spot_2(a, b);
 	}

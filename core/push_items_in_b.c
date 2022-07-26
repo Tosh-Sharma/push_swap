@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 20:47:58 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/25 19:27:04 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/07/26 17:38:58 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,7 @@ void	place_in_position(t_array *a, t_array *b,
 		if (a->arr[0] > max->number)
 			bring_index_to_top_and_push(a, b, max->index);
 		else if (a->arr[0] < min->number)
-		{
-			bring_index_to_top_and_push(a, b, min->index);
-			swap_b(b->arr);
-		}
+			bring_index_to_bottom_and_push(a, b, min->index);
 		else
 			find_best_spot(a, b);
 	}
@@ -84,9 +81,9 @@ void	calculate_min_max(t_array *array,
 	}
 }
 
-/*	1. Find where the min and max number are in the stack	*/
-/*	2. See where the number you want to put, fits into the array	*/
-/*	3. Calculate whether rotate or rev_rotate is the best			*/
+//	1. Find where the min and max number are in the stack
+//	2. See where the number you want to put, fits into the array
+//	3. Calculate whether rotate or rev_rotate is the best
 void	take_best_path(t_array *a, t_array *b)
 {
 	t_array_item	min;
@@ -101,16 +98,16 @@ void	take_best_path(t_array *a, t_array *b)
 	place_in_position(a, b, &min, &max);
 }
 
-/*	Keep stack B in descending order								*/
-/*	If item being pushed from A to B is not the max number,		*/
-/* 	find the right spot for it and keep pushing it into the stack	*/
-/*	There are multiple ways to find the right spot					*/
-/*	1. It is the min number, so push and rotate to bottom		*/
-/*	2. It is the max, so you push and keep it as is				*/
-/*	3. It is somewhere in the middle, so you either rotate or 		*/
-/*		rev_rotate depending on which is the shorter path			*/
-/*	TODO: Can you optimise the code here by either					 */
-/*	 eliminating the need to sort it in order or nah?				*/
+//	Keep stack B in descending order
+//	If item being pushed from A to B is not the max number,
+// 	find the right spot for it and keep pushing it into the stack
+//	There are multiple ways to find the right spot
+//	1. It is the min number, so push and rotate to bottom
+//	2. It is the max, so you push and keep it as is
+//	3. It is somewhere in the middle, so you either rotate or
+//		rev_rotate depending on which is the shorter path
+//	TODO: Can you optimise the code here by either
+//	 eliminating the need to sort it in order or nah?
 void	push_items_in_b(t_array *a, t_array *b, t_array *subsqnc)
 {
 	int				i;
@@ -131,8 +128,4 @@ void	push_items_in_b(t_array *a, t_array *b, t_array *subsqnc)
 			break ;
 	}
 	calculate_min_max(b, &min, &max);
-	if ((max.index + 1) <= (b->size) / 2)
-		rotate_n_times(b, max.index, 'b');
-	else
-		rev_rotate_n_times(b, b->size - max.index, 'b');
 }

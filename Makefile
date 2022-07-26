@@ -54,6 +54,7 @@ LIBFT_SRC_FILES = ft_isalpha.c \
 LIB_SRC = $(addprefix libft/, $(LIBFT_SRC_FILES))
 SRCS = 	push_swap.c \
 		core/lngst_sbsqnc.c \
+		core/super_lis.c \
 		core/push_items_in_b.c \
 		core/merge_stacks.c \
 		stack_moves/swap.c \
@@ -62,6 +63,7 @@ SRCS = 	push_swap.c \
 		stack_moves/rev_rotate.c \
 		helpers/utils.c \
 		helpers/print_array.c \
+		helpers/special_moves.c \
 		$(LIB_SRC)
 
 OBJS = ${SRCS:.c=.o}
