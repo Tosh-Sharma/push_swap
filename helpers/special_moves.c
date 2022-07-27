@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:16:48 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/26 14:23:17 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/07/27 19:39:57 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,13 @@ void	bring_index_to_top_and_push(t_array *a, t_array *b,
 	push_to_b(a, b);
 }
 
+// When it is the smallest number, needs to go between
+// the smallest and largest
 void	bring_index_to_bottom_and_push(t_array *a, t_array *b, int index)
 {
-	if ((index + 1) <= (b->size / 2))
-		rev_rotate_n_times(b, index + 1, 'b');
-	else
-		rotate_n_times(b, b->size - 1 - index, 'b');
+	if (b->arr[index + 1] > b->arr[index])
+	{
+	}
 	push_to_b(a, b);
 }
 
@@ -44,7 +45,7 @@ void	rotate_to_bottom_and_push(t_array *a,
 	t_array *b, int index)
 {
 	if ((index + 1) <= (a->size / 2))
-		rev_rotate_n_times(a, index + 1, 'a');
+		rev_rotate_n_times(a, index, 'a');
 	else
 		rotate_n_times(a, a->size - 1 - index, 'a');
 	push_to_a(a, b);

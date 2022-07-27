@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:25:16 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/26 17:54:41 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/07/27 19:41:08 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 t_array	*initialize_input(char **argv, int count);
 t_array	*initialize_stack_b(t_array *a);
 
+// ./push_swap 3 18 4 13 12 -2 -16 0 -1 -3 7 8 -18 20 -17 6 10 11 -14 -7 -11 -13 -19 -6 5 -5 14 -12 1 9 16 -4 -20 19 -10 2 -8 17 -15 15 -9
 //	THE ALGORITHM IN SIMPLE TERMS
 //	1. 	Ensure the data is numbers without any repitition.
 //	2. 	Ensure the data set is numbers only in int range.
@@ -41,12 +42,17 @@ int	main(int argc, char **argv)
 	t_array	*b;
 
 	a = initialize_input(argv, argc - 1);
+	print_array(a->arr, a->size, "A");
 	b = initialize_stack_b(a);
 	subsqnc = super_lis(a);
+	print_array(subsqnc->arr, subsqnc->size, "LIS");
 	if (subsqnc->size == a->size)
 		exit(0);
 	push_items_in_b(a, b, subsqnc);
+	print_array(a->arr, a->size, "A");
+	print_array(b->arr, b->size, "B");
 	merge_stacks(a, b);
+	print_array(a->arr, a->size, "Final A");
 	free(a->arr);
 	free(b->arr);
 	free(a);

@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 17:57:41 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/25 11:54:53 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/07/27 17:34:32 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,20 @@ void	rev_rotate_array(t_array *array)
 void	rev_rotate_a(t_array *a)
 {
 	rev_rotate_array(a);
-	ft_putstr_fd("rra\n", 1);
+	// ft_putstr_fd("rra\n", 1);
 }
 
 void	rev_rotate_b(t_array *b)
 {
 	rev_rotate_array(b);
-	ft_putstr_fd("rrb\n", 1);
+	// ft_putstr_fd("rrb\n", 1);
 }
 
 void	rev_rotate_both(t_array *a, t_array *b)
 {
 	rev_rotate_array(a);
 	rev_rotate_array(b);
-	ft_putstr_fd("rrr\n", 1);
+	// ft_putstr_fd("rrr\n", 1);
 }
 
 void	rev_rotate_n_times(t_array *array, int n, char name)

@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:57:57 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/26 18:15:18 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/07/27 14:40:05 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,52 @@ void	free_everything(t_array **superset, t_array **result_set, int size)
 	free(result_set);
 }
 
+t_array	*return_array_from_list(t_array **result_set, int size, int max_length)
+{
+	int		i;
+	int		j;
+	int		*array;
+	t_array	*result;
+
+	i = 0;
+	j = 0;
+	result = (t_array *)malloc(sizeof(t_array));
+	while (i < size)
+	{
+		if (result_set[i]->size == max_length)
+		{
+			result->size = max_length;
+			array = (int *)malloc(sizeof(int) * max_length);
+			while (j < max_length)
+			{
+				array[j] = result_set[i]->arr[j];
+				j++;
+			}
+			result->arr = array;
+			break ;
+		}
+		i++;
+	}
+	return (result);
+}
+
 // Write the code for picking the longest subsequence
 t_array	*pick_longest_sequence(t_array **result_set, int size)
 {
+	int		i;
+	int		j;
+	int		max_length;
+
+	i = 0;
+	j = 0;
+	max_length = result_set[i]->size;
+	while (i < size)
+	{
+		if (result_set[i]->size > max_length)
+			max_length = result_set[i]->size;
+		i++;
+	}
+	return (return_array_from_list(result_set, size, max_length));
 }
 
 t_array	*super_lis(t_array *a)
@@ -81,8 +124,6 @@ t_array	*super_lis(t_array *a)
 	{
 		superset[i] = create_array_from_index(a, i);
 		result_set[i] = fnd_lngst_sbsqnc(superset[i]);
-		printf("Result_set at index %d gave length %d\n",
-			i, result_set[i]->size);
 		i++;
 	}
 	subsqnc = pick_longest_sequence(result_set, a->size);

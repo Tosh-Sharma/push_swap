@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 20:47:58 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/26 17:38:58 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/07/27 19:00:04 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,8 @@ void	take_best_path(t_array *a, t_array *b)
 	t_array_item	min;
 	t_array_item	max;
 
+	print_array(a->arr, a->size, "A");
+	print_array(b->arr, b->size, "B");
 	if (b->size == 0)
 	{
 		push_to_b(a, b);
