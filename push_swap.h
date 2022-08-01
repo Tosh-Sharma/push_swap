@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:43:19 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/26 17:54:38 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/01 21:32:07 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,9 @@ void	bring_index_to_top_and_push(t_array *a, t_array *b, int index);
 void	bring_index_to_bottom_and_push(t_array *a, t_array *b, int index);
 void	rotate_index_and_push_to_a(t_array *a, t_array *b, int index);
 void	rotate_to_bottom_and_push(t_array *a, t_array *b, int index);
+void	bring_highest_to_bottom_and_push(t_array *a, t_array *b, int index);
+void	rotate_highest_to_bottom_and_push(t_array *a, t_array *b, int index);
+void	rotate_highest_to_bottom_and_push(t_array *a, t_array *b, int index);
 
 /*	CORE ALGO	*/
 t_array	*fnd_lngst_sbsqnc(t_array *a);

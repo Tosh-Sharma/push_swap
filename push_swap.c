@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:25:16 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/27 19:41:08 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/01 21:19:09 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,18 @@
 t_array	*initialize_input(char **argv, int count);
 t_array	*initialize_stack_b(t_array *a);
 
-// ./push_swap 3 18 4 13 12 -2 -16 0 -1 -3 7 8 -18 20 -17 6 10 11 -14 -7 -11 -13 -19 -6 5 -5 14 -12 1 9 16 -4 -20 19 -10 2 -8 17 -15 15 -9
-//	THE ALGORITHM IN SIMPLE TERMS
-//	1. 	Ensure the data is numbers without any repitition.
-//	2. 	Ensure the data set is numbers only in int range.
-//	3. 	Put the data in an array
-//	4. 	Write code for creating the stacks A and B.
-//	5. 	Write code for creating	the moves like push, swap, rotate, etc.
-//	6. 	Find the longest subsequence of numbers.
-//	7. 	Did you consider the list to be circularly sequential.
-//	8. 	Store all the numbers of the subsequence in an array.
-//	9. 	Push numbers not in subsequence in the second stack.
-//	10. Always keep second stack sorted.
-//	11. Merge both stacks
-//	Is point number 12 needed or not?
-//	12. Rotate to put smallest first.
-//	make re && ./push_swap 3 4 5 6 1 2
+// ./push_swap 3 18 4 13 12 -2 -16 0 -1 -3 7 8 -18 20 -17 6 10 11
+// -14 -7 -11 -13 -19 -6 5 -5 14 -12 1 9 16 -4 -20 19 -10 2 -8 17 -15 15 -9
+//	Redoing the algorithm
+// 1. Detect LIS.
+// 2. Detect LIS 2 from the subset of LIS 1.
+// 3. Sort the array and store the result in sorted_array
+// 4. Split input_array into 2 parts and put elements closest to true index.
+// i.e. Stack A contains 0 to n/2 elements in DESC order and
+// 		stack B contains n/2 to n elements in ASC order
+// Elements get
+// A. Either popped to stack_B and they either stay or rotate
+// B. Swap into stack_A or rotate.
 // TODO: If subsqnc->size == a->size, do nothing
 // TODO: Check if smallest element is the first element or not
 // TODO: Take care of the problem of exit in case of
@@ -49,8 +45,8 @@ int	main(int argc, char **argv)
 	if (subsqnc->size == a->size)
 		exit(0);
 	push_items_in_b(a, b, subsqnc);
-	print_array(a->arr, a->size, "A");
-	print_array(b->arr, b->size, "B");
+	print_array(a->arr, a->size, "Mid A");
+	print_array(b->arr, b->size, "Mid B");
 	merge_stacks(a, b);
 	print_array(a->arr, a->size, "Final A");
 	free(a->arr);

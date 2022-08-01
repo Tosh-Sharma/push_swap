@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 20:48:11 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/26 14:23:15 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/01 21:33:58 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,14 @@ void	find_best_spot_2(t_array *a, t_array *b)
 	i = 0;
 	while (i < a->size)
 	{
-		if ((i == (a->size - 1)) && ((b->arr[0] > a->arr[a->size - 1]
+		if ((i == (a->size - 1))
+			&& ((b->arr[0] > a->arr[a->size - 1]
 					&& (b->arr[0] < a->arr[0]))))
 		{
 			push_to_a(a, b);
 			return ;
 		}
-		if (((b->arr[0] > a->arr[i] && (b->arr[0] < a->arr[i + 1]))))
+		if ((b->arr[0] > a->arr[i]) && (b->arr[0] < a->arr[i + 1]))
 		{
 			rotate_index_and_push_to_a(a, b, i + 1);
 			return ;
@@ -41,9 +42,11 @@ void	merge_stacks(t_array *a, t_array *b)
 
 	while (b->size != 0)
 	{
+		print_array(a->arr, a->size, "T A");
+		print_array(b->arr, b->size, "T B");
 		calculate_min_max(a, &min, &max);
 		if (b->arr[0] > max.number)
-			rotate_index_and_push_to_a(a, b, max.index);
+			rotate_highest_to_bottom_and_push(a, b, max.index);
 		else if (b->arr[0] < min.number)
 			rotate_to_bottom_and_push(a, b, min.index);
 		else

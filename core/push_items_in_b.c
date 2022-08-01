@@ -6,11 +6,12 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 20:47:58 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/27 19:00:04 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/01 20:43:45 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+#include <stdio.h>
 
 void	find_best_spot(t_array *a, t_array *b)
 {
@@ -26,7 +27,7 @@ void	find_best_spot(t_array *a, t_array *b)
 			push_to_b(a, b);
 			return ;
 		}
-		if ((b->arr[i] > a->arr[0]) && (b->arr[i + 1] < a->arr[0]))
+		if ((b->arr[i] < a->arr[0]) && (b->arr[i + 1] > a->arr[0]))
 		{
 			bring_index_to_top_and_push(a, b, i + 1);
 			return ;
@@ -47,7 +48,7 @@ void	place_in_position(t_array *a, t_array *b,
 	else
 	{
 		if (a->arr[0] > max->number)
-			bring_index_to_top_and_push(a, b, max->index);
+			bring_highest_to_bottom_and_push(a, b, max->index);
 		else if (a->arr[0] < min->number)
 			bring_index_to_bottom_and_push(a, b, min->index);
 		else
@@ -89,8 +90,6 @@ void	take_best_path(t_array *a, t_array *b)
 	t_array_item	min;
 	t_array_item	max;
 
-	print_array(a->arr, a->size, "A");
-	print_array(b->arr, b->size, "B");
 	if (b->size == 0)
 	{
 		push_to_b(a, b);
