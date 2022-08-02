@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 20:48:11 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/01 21:33:58 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/02 17:19:23 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ void	merge_stacks(t_array *a, t_array *b)
 
 	while (b->size != 0)
 	{
-		print_array(a->arr, a->size, "T A");
-		print_array(b->arr, b->size, "T B");
 		calculate_min_max(a, &min, &max);
 		if (b->arr[0] > max.number)
 			rotate_highest_to_bottom_and_push(a, b, max.index);

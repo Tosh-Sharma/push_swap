@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 20:47:58 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/01 20:43:45 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/02 19:18:33 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ void	find_best_spot(t_array *a, t_array *b)
 	while (i < b->size)
 	{
 		if ((i == (b->size - 1))
-			&& ((b->arr[b->size - 1] > a->arr[0])
-				&& (b->arr[0] < a->arr[0])))
+			&& (((b->arr[b->size - 1] > a->arr[0])
+					&& (b->arr[0] < a->arr[0]))
+				|| ((b->arr[b->size - 1] < a->arr[0])
+					&& (b->arr[0] > a->arr[0]))))
 		{
 			push_to_b(a, b);
 			return ;

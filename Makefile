@@ -63,7 +63,8 @@ SRCS = 	push_swap.c \
 		stack_moves/rev_rotate.c \
 		helpers/utils.c \
 		helpers/print_array.c \
-		helpers/special_moves.c \
+		helpers/special_moves_a.c \
+		helpers/special_moves_b.c \
 		$(LIB_SRC)
 
 OBJS = ${SRCS:.c=.o}

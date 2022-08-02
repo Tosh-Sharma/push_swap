@@ -15,3 +15,17 @@ Version: 6
 // Random ideas inside my head :point_down:
 3. Try to find a good pivot and place half the items in the other list.
 4. You can also try to run the operations that are similar on 
+
+### NOTES FOR SELF
+
+```
+SET n   = 0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15
+
+LIS l1  = 0, 2, 6, 9, 11, 15.
+SET m   = 8, 4, 12, 10, 14, 1, 5, 13, 3, 7
+
+sorted_b= 1, 3, 4, 5, 7, 8, 10, 12, 13, 14
+Indexes = 0, 1, 2, 3, 4, 5,  6,  7,  8,  9
+
+8, 4, 12, 10, 14, 1, 5, 13, 3, 7
+```

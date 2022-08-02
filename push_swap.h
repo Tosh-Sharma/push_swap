@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:43:19 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/01 21:32:07 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/02 17:18:54 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,16 @@ typedef struct array_item
 void	exit_program(int *numbers);
 void	print_array(int *array, int size, char *name);
 int		array_contains(t_array *src, int input);
-void	bring_index_to_top_and_push(t_array *a, t_array *b, int index);
-void	bring_index_to_bottom_and_push(t_array *a, t_array *b, int index);
+
+/*	MOVES FOR A	*/
 void	rotate_index_and_push_to_a(t_array *a, t_array *b, int index);
 void	rotate_to_bottom_and_push(t_array *a, t_array *b, int index);
+void	rotate_highest_to_bottom_and_push(t_array *a, t_array *b, int index);
+
+/*	MOVES FOR B	*/
+void	bring_index_to_top_and_push(t_array *a, t_array *b, int index);
+void	bring_index_to_bottom_and_push(t_array *a, t_array *b, int index);
 void	bring_highest_to_bottom_and_push(t_array *a, t_array *b, int index);
-void	rotate_highest_to_bottom_and_push(t_array *a, t_array *b, int index);
-void	rotate_highest_to_bottom_and_push(t_array *a, t_array *b, int index);
 
 /*	CORE ALGO	*/
 t_array	*fnd_lngst_sbsqnc(t_array *a);
