@@ -18,7 +18,9 @@ Of course you need Python3 with the builtin Tkinter.
 You can install it with Brew.
 --> Brew install python3
 Execute the script with :
---> python3 pyviz.py `ruby -e "puts (-50..50).to_a.shuffle.join(' ')"`
+
+python3 pyviz.py `ruby -e "puts (-50..50).to_a.shuffle.join(' ')"`
+
 You can change the PUSHS_PATH to get to the relative path of your push_swap
 You can decrease or increase the speed with the matching buttons.
 """

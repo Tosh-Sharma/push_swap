@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:43:19 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/02 17:18:54 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/03 18:05:55 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <stdarg.h>
 # include <stdlib.h>
 # include "libft/libft.h"
+
+// TODO: Remove below input.
+# include <stdio.h>
 
 typedef struct s_array
 {
@@ -53,6 +56,8 @@ void	calculate_min_max(t_array *array,
 void	place_in_position(t_array *a, t_array *b,
 			t_array_item *min, t_array_item *max);
 t_array	*super_lis(t_array *a);
+t_array	*calculate_lis_b(t_array *a, t_array *subsqnc);
+void	push_lis_in_b(t_array *a, t_array *b, t_array *lis_b);
 
 /*	ROTATE	*/
 void	rotate_a(t_array *a);

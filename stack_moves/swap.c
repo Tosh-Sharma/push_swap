@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 16:44:22 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/02 18:19:07 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/03 18:08:12 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,40 @@ void	swap(int *array)
 	ft_swap(&array[0], &array[1]);
 }
 
+// void	swap_a(int *array)
+// {
+// 	swap(array);
+// 	ft_putstr_fd("sa\n", 1);
+// }
+
+// void	swap_b(int *array)
+// {
+// 	swap(array);
+// 	ft_putstr_fd("sb\n", 1);
+// }
+
+// void	swap_ss(int *a, int *b)
+// {
+// 	swap(a);
+// 	swap(b);
+// 	ft_putstr_fd("ss\n", 1);
+// }
+
 void	swap_a(int *array)
 {
 	swap(array);
-	ft_putstr_fd("sa\n", 1);
+	// ft_putstr_fd("sa\n", 1);
 }
 
 void	swap_b(int *array)
 {
 	swap(array);
-	ft_putstr_fd("sb\n", 1);
+	// ft_putstr_fd("sb\n", 1);
 }
 
 void	swap_ss(int *a, int *b)
 {
 	swap(a);
 	swap(b);
-	ft_putstr_fd("ss\n", 1);
+	// ft_putstr_fd("ss\n", 1);
 }

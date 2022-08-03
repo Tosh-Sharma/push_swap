@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 17:57:47 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/02 18:18:57 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/03 18:08:48 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,28 @@ void	push_from_one_to_two(t_array *one, t_array *two)
 }
 
 /* Push from the top of A to B. */
+// void	push_to_b(t_array *a, t_array *b)
+// {
+// 	push_from_one_to_two(a, b);
+// 	ft_putstr_fd("pb\n", 1);
+// }
+
+/* Push from the top of B to A. */
+// void	push_to_a(t_array *a, t_array *b)
+// {
+// 	push_from_one_to_two(b, a);
+// 	ft_putstr_fd("pa\n", 1);
+// }
+
 void	push_to_b(t_array *a, t_array *b)
 {
 	push_from_one_to_two(a, b);
-	ft_putstr_fd("pb\n", 1);
+	// ft_putstr_fd("pb\n", 1);
 }
 
 /* Push from the top of B to A. */
 void	push_to_a(t_array *a, t_array *b)
 {
 	push_from_one_to_two(b, a);
-	ft_putstr_fd("pa\n", 1);
+	// ft_putstr_fd("pa\n", 1);
 }

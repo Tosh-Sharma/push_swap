@@ -57,6 +57,8 @@ SRCS = 	push_swap.c \
 		core/super_lis.c \
 		core/push_items_in_b.c \
 		core/merge_stacks.c \
+		core/calculate_lis_b.c \
+		core/push_lis_in_b.c \
 		stack_moves/swap.c \
 		stack_moves/push.c \
 		stack_moves/rotate.c \
