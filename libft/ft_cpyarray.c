@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_lis_in_b.c                                    :+:      :+:    :+:   */
+/*   ft_cpyarray.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/03 16:47:28 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/04 17:34:54 by tsharma          ###   ########.fr       */
+/*   Created: 2022/08/04 18:27:52 by tsharma           #+#    #+#             */
+/*   Updated: 2022/08/04 18:29:34 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "libft.h"
 
-void	push_lis_in_b(t_array *a, t_array *b, t_array *lis_b)
+int	*ft_cpyarray(int *dst, int *src, size_t n)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (i <= a->size)
+	if (src == NULL && dst == NULL)
+		return (NULL);
+	while (i < n)
 	{
-		if (array_contains(lis_b, a->arr[0]))
-			push_to_b(a, b);
-		else
-			rotate_a(a);
+		dst[i] = src[i];
 		i++;
 	}
+	return (dst);
 }

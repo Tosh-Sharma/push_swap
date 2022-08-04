@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 17:57:41 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/03 18:07:37 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/04 17:32:19 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ void	rev_rotate_n_times(t_array *array, int n, char name)
 	}
 }
 
+// WITHOUT PRINT
 void	rev_rotate_a(t_array *a)
 {
 	rev_rotate_array(a);

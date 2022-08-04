@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:43:19 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/03 18:05:55 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/04 19:01:12 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct array_item
 void	exit_program(int *numbers);
 void	print_array(int *array, int size, char *name);
 int		array_contains(t_array *src, int input);
+int		array_contains_index(t_array *src, int input, int start, int end);
 
 /*	MOVES FOR A	*/
 void	rotate_index_and_push_to_a(t_array *a, t_array *b, int index);
@@ -49,15 +50,16 @@ void	bring_highest_to_bottom_and_push(t_array *a, t_array *b, int index);
 
 /*	CORE ALGO	*/
 t_array	*fnd_lngst_sbsqnc(t_array *a);
-void	push_items_in_b(t_array *a, t_array *b, t_array *subsqnc);
+void	sort_into_b(t_array *a, t_array *b, t_array *subsqnc);
 void	merge_stacks(t_array *a, t_array *b);
 void	calculate_min_max(t_array *array,
 			t_array_item *min, t_array_item *max);
 void	place_in_position(t_array *a, t_array *b,
 			t_array_item *min, t_array_item *max);
 t_array	*super_lis(t_array *a);
-t_array	*calculate_lis_b(t_array *a, t_array *subsqnc);
+t_array	*calculate_m(t_array *a, t_array *subsqnc);
 void	push_lis_in_b(t_array *a, t_array *b, t_array *lis_b);
+t_array	*copy_and_sort(t_array *array);
 
 /*	ROTATE	*/
 void	rotate_a(t_array *a);

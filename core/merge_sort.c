@@ -6,12 +6,10 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 20:13:32 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/03 00:06:50 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/04 18:48:16 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <stdio.h>
-#include <stdlib.h>
 #include "../push_swap.h"
 
 typedef struct ijk
@@ -72,7 +70,7 @@ t_ijk	*sort_data(t_array *left, t_array *right, int *arr, int l)
 	return (ijk);
 }
 
-void	merge(int arr[], int l, int m, int r)
+void	merge(int *arr, int l, int m, int r)
 {
 	t_ijk	*ijk;
 	t_array	*left;
@@ -96,7 +94,7 @@ void	merge(int arr[], int l, int m, int r)
 	free_memory(left, right, ijk);
 }
 
-void	merge_sort(int arr[], int l, int r)
+void	merge_sort(int *arr, int l, int r)
 {
 	int	m;
 
@@ -108,19 +106,3 @@ void	merge_sort(int arr[], int l, int r)
 		merge(arr, l, m, r);
 	}
 }
-
-// /* Driver code */
-// int	main(void)
-// {
-// 	t_array	arr;
-// 	int		array[] = {12, 11, 13, 5, 6, 7, -1, 0, 4};
-
-// 	arr.arr = array;
-// 	arr.size = 9;
-// 	printf("Given array is \n");
-// 	print_array(arr.arr, arr.size, "Pre Array");
-// 	merge_sort(arr.arr, 0, arr.size - 1);
-// 	printf("\nSorted array is \n");
-// 	print_array(arr.arr, arr.size, "Post array");
-// 	return (0);
-// }

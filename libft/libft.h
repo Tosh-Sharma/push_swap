@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 20:13:10 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/18 18:55:54 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/04 18:30:13 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	ft_putnbr_16(int num, int fd);
 void	ft_putnbr_16_caps(int num, int fd);
 char	*ft_revstr(char *str);
 char	*ft_straddchar(char const *s1, char c);
+int		*ft_cpyarray(int *dst, int *src, size_t n);
 
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);

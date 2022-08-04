@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 15:04:46 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/26 14:16:22 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/04 19:51:15 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,22 @@ int	array_contains(t_array *src, int input)
 		i++;
 	}
 	if (i == src->size)
+		return (0);
+	return (0);
+}
+
+int	array_contains_index(t_array *src, int input, int start, int end)
+{
+	int	i;
+
+	i = start;
+	while (i < end)
+	{
+		if (src->arr[i] == input)
+			return (1);
+		i++;
+	}
+	if (i == end)
 		return (0);
 	return (0);
 }

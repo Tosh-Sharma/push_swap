@@ -6,12 +6,11 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 20:47:58 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/02 19:18:33 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/04 19:51:24 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-#include <stdio.h>
 
 void	find_best_spot(t_array *a, t_array *b)
 {
@@ -101,34 +100,18 @@ void	take_best_path(t_array *a, t_array *b)
 	place_in_position(a, b, &min, &max);
 }
 
-//	Keep stack B in descending order
-//	If item being pushed from A to B is not the max number,
-// 	find the right spot for it and keep pushing it into the stack
-//	There are multiple ways to find the right spot
-//	1. It is the min number, so push and rotate to bottom
-//	2. It is the max, so you push and keep it as is
-//	3. It is somewhere in the middle, so you either rotate or
-//		rev_rotate depending on which is the shorter path
-//	TODO: Can you optimise the code here by either
-//	 eliminating the need to sort it in order or nah?
-void	push_items_in_b(t_array *a, t_array *b, t_array *subsqnc)
+//	Algorithm to sort data into B in the most efficient manner
+//	1. Keep stack B in descending order
+//  2. Cal
+void	sort_into_b(t_array *a, t_array *b, t_array *subsqnc)
 {
-	int				i;
-	int				a_size;
-	t_array_item	min;
-	t_array_item	max;
+	t_array	*m;
+	t_array	*sorted_m;
 
-	a_size = a->size;
-	i = 0;
-	while (1)
-	{
-		if (array_contains(subsqnc, a->arr[0]))
-			rotate_a(a);
-		else
-			take_best_path(a, b);
-		i++;
-		if (i == a_size)
-			break ;
-	}
-	calculate_min_max(b, &min, &max);
+	m = calculate_m(a, subsqnc);
+	sorted_m = copy_and_sort(m);
+	free(m->arr);
+	free(sorted_m->arr);
+	free(m);
+	free(sorted_m);
 }

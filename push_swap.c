@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:25:16 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/03 18:56:26 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/04 19:01:42 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_array	*initialize_input(char **argv, int count);
 t_array	*initialize_stack_b(t_array *a);
-void	calculate_swap_improvements(t_array *a);
+
 // FOR 100 inputs
 // ./push_swap `ruby -e "puts (-50..50).to_a.shuffle.join(' ')"`
 // FOR 30 inputs
@@ -28,29 +28,20 @@ int	main(int argc, char **argv)
 	t_array	*a;
 	t_array	*subsqnc;
 	t_array	*b;
-	t_array	*lis_b;
-	int		i;
 
 	a = initialize_input(argv, argc - 1);
 	b = initialize_stack_b(a);
-	i = 1;
-	print_array(a->arr, a->size, "A");
-	calculate_swap_improvements(a);
+	print_array(a->arr, a->size, "Starting A");
 	while (1)
 	{
 		subsqnc = super_lis(a);
-		printf("Iteration number: %d\n", i++);
-		print_array(a->arr, a->size, "A");
-		print_array(subsqnc->arr, subsqnc->size, "LIS A");
+		print_array(subsqnc->arr, subsqnc->size, "subsqnc");
 		if (subsqnc->size == a->size)
 			break ;
-		lis_b = calculate_lis_b(a, subsqnc);
-		push_lis_in_b(a, b, lis_b);
-		free(subsqnc->arr);
-		free(subsqnc);
-		free(lis_b->arr);
-		free(lis_b);
+		sort_into_b(a, b, subsqnc);
 	}
+	print_array(a->arr, a->size, "Pre merge A");
+	print_array(b->arr, b->size, "Pre merge B");
 	merge_stacks(a, b);
 	return (0);
 }
@@ -101,26 +92,6 @@ t_array	*initialize_stack_b(t_array *a)
 	return (b);
 }
 
-void	calculate_swap_improvements(t_array *a)
-{
-	int	i;
-	int	count;
-
-	i = 0;
-	count = 0;
-	while (i < a->size)
-	{
-		if (i == a->size - 1)
-		{
-			if (a->arr[a->size - 1] > a->arr[0])
-				count++;
-		}
-		else if (a->arr[i] > a->arr[i + 1])
-			count++;
-		i++;
-	}
-	printf("Swap improvements possible are %d\n", count);
-}
 // Other logics to consider.
 // 1. Let sample set be n. Detect LIS 'l1' in 'n'.
 // 2. Sort elements 'm' (n - l1) to get 'sorted_b'.
