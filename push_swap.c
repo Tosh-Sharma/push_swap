@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:25:16 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/04 19:01:42 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/09 15:07:49 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ int	main(int argc, char **argv)
 	{
 		subsqnc = super_lis(a);
 		print_array(subsqnc->arr, subsqnc->size, "subsqnc");
-		if (subsqnc->size == a->size)
-			break ;
 		sort_into_b(a, b, subsqnc);
+		if (subsqnc->size == a->size || 1)
+			break ;
 	}
 	print_array(a->arr, a->size, "Pre merge A");
 	print_array(b->arr, b->size, "Pre merge B");

@@ -66,6 +66,7 @@ SRCS = 	push_swap.c \
 		stack_moves/rotate.c \
 		stack_moves/rev_rotate.c \
 		helpers/utils.c \
+		helpers/array_filter_percent.c \
 		helpers/print_array.c \
 		helpers/special_moves_a.c \
 		helpers/special_moves_b.c \

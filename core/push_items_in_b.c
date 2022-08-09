@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 20:47:58 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/04 19:51:24 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/09 17:02:40 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,15 +101,23 @@ void	take_best_path(t_array *a, t_array *b)
 }
 
 //	Algorithm to sort data into B in the most efficient manner
-//	1. Keep stack B in descending order
-//  2. Cal
+//	1. m = n - l1
+//	2. sorted_m = sorted "m"
+//	3. Calculate most of first/last 20% of s_m in first/last 20% of m.
+//	4. Pick whichever one wins.
+//	5. Keep refining the process of picking and their cost involved.
+//	6. Like you can add cost of moving into B and out of A.
+//	7. You can track for both bottom half and upper half of s_m elements.
 void	sort_into_b(t_array *a, t_array *b, t_array *subsqnc)
 {
-	t_array	*m;
-	t_array	*sorted_m;
+	t_array				*m;
+	t_array				*sorted_m;
 
 	m = calculate_m(a, subsqnc);
 	sorted_m = copy_and_sort(m);
+	print_array(sorted_m->arr, sorted_m->size, "Sorted");
+	element_count(m, sorted_m, 20);
+	(void)b;
 	free(m->arr);
 	free(sorted_m->arr);
 	free(m);

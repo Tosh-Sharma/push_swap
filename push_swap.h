@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:43:19 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/04 19:01:12 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/09 16:58:00 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_array
 	int	size;
 }	t_array;
 
-typedef struct array_item
+typedef struct s_array_item
 {
 	int	number;
 	int	index;
@@ -35,8 +35,10 @@ typedef struct array_item
 /*	HELPERS	*/
 void	exit_program(int *numbers);
 void	print_array(int *array, int size, char *name);
+void	merge_sort(int *arr, int l, int r);
 int		array_contains(t_array *src, int input);
 int		array_contains_index(t_array *src, int input, int start, int end);
+void	element_count(t_array *input, t_array *src, int percent);
 
 /*	MOVES FOR A	*/
 void	rotate_index_and_push_to_a(t_array *a, t_array *b, int index);
