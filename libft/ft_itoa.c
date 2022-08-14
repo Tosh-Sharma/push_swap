@@ -6,12 +6,11 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 15:18:09 by tsharma           #+#    #+#             */
-/*   Updated: 2022/05/03 19:42:47 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/14 21:02:38 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include<stdio.h>
 
 char	*handle_num(int n, int is_neg, int i)
 {

@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:25:16 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/09 15:07:49 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/14 17:03:03 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ t_array	*initialize_stack_b(t_array *a);
 // ./push_swap `ruby -e "puts (-50..50).to_a.shuffle.join(' ')"`
 // FOR 30 inputs
 // ./push_swap `ruby -e "puts (-15..15).to_a.shuffle.join(' ')"`
+// For the visualizer
 // python3 pyviz.py `ruby -e "puts (-50..50).to_a.shuffle.join(' ')"`
 // TODO: If subsqnc size = arr size, check if smallest element is first or not
 // TODO: Take care of the problem of exit in case of

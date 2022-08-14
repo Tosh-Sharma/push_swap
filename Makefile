@@ -58,16 +58,18 @@ SRCS = 	push_swap.c \
 		core/push_items_in_b.c \
 		core/merge_stacks.c \
 		core/calculate_m.c \
-		core/push_lis_in_b.c \
 		core/merge_sort.c \
 		core/copy_and_sort.c \
+		core/cost_counting.c \
+		core/moves_to_make.c \
 		stack_moves/swap.c \
 		stack_moves/push.c \
 		stack_moves/rotate.c \
 		stack_moves/rev_rotate.c \
 		helpers/utils.c \
-		helpers/array_filter_percent.c \
+		helpers/init_array.c \
 		helpers/print_array.c \
+		helpers/rev_array.c \
 		helpers/special_moves_a.c \
 		helpers/special_moves_b.c \
 		$(LIB_SRC)

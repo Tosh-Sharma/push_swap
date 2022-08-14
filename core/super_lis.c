@@ -6,12 +6,11 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:57:57 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/27 14:40:05 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/14 19:15:41 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-#include <stdio.h>
 
 // There are n elements in the array
 // Therefore, n lists possible

@@ -6,12 +6,11 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 14:34:17 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/23 22:38:10 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/14 21:02:27 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-// #include <stdio.h>
 
 int	ceil_index(int *input, int *temp, int end, int s)
 {

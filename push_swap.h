@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:43:19 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/09 16:58:00 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/14 23:39:37 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,23 +32,12 @@ typedef struct s_array_item
 	int	index;
 }	t_array_item;
 
-/*	HELPERS	*/
-void	exit_program(int *numbers);
-void	print_array(int *array, int size, char *name);
-void	merge_sort(int *arr, int l, int r);
-int		array_contains(t_array *src, int input);
-int		array_contains_index(t_array *src, int input, int start, int end);
-void	element_count(t_array *input, t_array *src, int percent);
-
-/*	MOVES FOR A	*/
-void	rotate_index_and_push_to_a(t_array *a, t_array *b, int index);
-void	rotate_to_bottom_and_push(t_array *a, t_array *b, int index);
-void	rotate_highest_to_bottom_and_push(t_array *a, t_array *b, int index);
-
-/*	MOVES FOR B	*/
-void	bring_index_to_top_and_push(t_array *a, t_array *b, int index);
-void	bring_index_to_bottom_and_push(t_array *a, t_array *b, int index);
-void	bring_highest_to_bottom_and_push(t_array *a, t_array *b, int index);
+typedef struct s_d_and_c
+{
+	int		count;
+	char	dir;
+	int		percent;
+}	t_d_and_c;
 
 /*	CORE ALGO	*/
 t_array	*fnd_lngst_sbsqnc(t_array *a);
@@ -60,8 +49,30 @@ void	place_in_position(t_array *a, t_array *b,
 			t_array_item *min, t_array_item *max);
 t_array	*super_lis(t_array *a);
 t_array	*calculate_m(t_array *a, t_array *subsqnc);
-void	push_lis_in_b(t_array *a, t_array *b, t_array *lis_b);
 t_array	*copy_and_sort(t_array *array);
+void	move_items_to_b(t_array *a, t_array *b, t_array *to_move);
+t_array	*element_count(t_array *input, t_array *sorted_input, int percent);
+
+/*	HELPERS	*/
+void	exit_program(int *numbers);
+void	print_array(int *array, int size, char *name);
+void	rev_array(t_array *input);
+void	merge_sort(int *arr, int l, int r);
+int		arr_cntns(t_array *src, int input);
+int		array_contains_index(t_array *src, int input, int start, int end);
+t_array	*slice_array(t_array *input, int start, int end);
+t_array	*init_array(int size, int reset_size);
+int		calculate_percent(t_array *a, t_array *b, t_array *subsqnc);
+
+/*	MOVES FOR A	*/
+void	rotate_index_and_push_to_a(t_array *a, t_array *b, int index);
+void	rotate_to_bottom_and_push(t_array *a, t_array *b, int index);
+void	rotate_highest_to_bottom_and_push(t_array *a, t_array *b, int index);
+
+/*	MOVES FOR B	*/
+void	bring_index_to_top_and_push(t_array *a, t_array *b, int index);
+void	bring_index_to_bottom_and_push(t_array *a, t_array *b, int index);
+void	bring_highest_to_bottom_and_push(t_array *a, t_array *b, int index);
 
 /*	ROTATE	*/
 void	rotate_a(t_array *a);
