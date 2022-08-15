@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:03:05 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/14 18:04:52 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/15 18:08:23 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,11 @@ t_array	*calculate_m(t_array *a, t_array *subsqnc)
 	return (m);
 }
 
-int	calculate_percent(t_array *a, t_array *b, t_array *subsqnc)
+int	calculate_percent(t_array *a, t_array *b, t_array *subsqnc, int counter)
 {
 	int	percent;
 
+	percent = 20 + (4 * counter);
 	if (b->size > a->size || subsqnc->size > a->size / 4)
 		percent = 30;
 	percent = 20;

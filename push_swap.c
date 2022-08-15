@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:25:16 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/14 17:03:03 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/15 19:46:51 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,19 @@ int	main(int argc, char **argv)
 	t_array	*a;
 	t_array	*subsqnc;
 	t_array	*b;
+	int		counter;
 
 	a = initialize_input(argv, argc - 1);
 	b = initialize_stack_b(a);
-	print_array(a->arr, a->size, "Starting A");
+	counter = 0;
 	while (1)
 	{
 		subsqnc = super_lis(a);
-		print_array(subsqnc->arr, subsqnc->size, "subsqnc");
-		sort_into_b(a, b, subsqnc);
-		if (subsqnc->size == a->size || 1)
+		sort_into_b(a, b, subsqnc, counter);
+		if (subsqnc->size == a->size)
 			break ;
+		counter++;
 	}
-	print_array(a->arr, a->size, "Pre merge A");
-	print_array(b->arr, b->size, "Pre merge B");
 	merge_stacks(a, b);
 	return (0);
 }

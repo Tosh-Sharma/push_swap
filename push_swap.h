@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:43:19 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/14 23:39:37 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/15 18:04:10 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct s_d_and_c
 
 /*	CORE ALGO	*/
 t_array	*fnd_lngst_sbsqnc(t_array *a);
-void	sort_into_b(t_array *a, t_array *b, t_array *subsqnc);
+void	sort_into_b(t_array *a, t_array *b, t_array *subsqnc, int counter);
 void	merge_stacks(t_array *a, t_array *b);
 void	calculate_min_max(t_array *array,
 			t_array_item *min, t_array_item *max);
@@ -50,8 +50,10 @@ void	place_in_position(t_array *a, t_array *b,
 t_array	*super_lis(t_array *a);
 t_array	*calculate_m(t_array *a, t_array *subsqnc);
 t_array	*copy_and_sort(t_array *array);
-void	move_items_to_b(t_array *a, t_array *b, t_array *to_move);
+void	move_items_to_b(t_array *a, t_array *b, t_array *to_move,
+			t_array *subsqnc);
 t_array	*element_count(t_array *input, t_array *sorted_input, int percent);
+void	take_best_path(t_array *a, t_array *b);
 
 /*	HELPERS	*/
 void	exit_program(int *numbers);
@@ -62,10 +64,11 @@ int		arr_cntns(t_array *src, int input);
 int		array_contains_index(t_array *src, int input, int start, int end);
 t_array	*slice_array(t_array *input, int start, int end);
 t_array	*init_array(int size, int reset_size);
-int		calculate_percent(t_array *a, t_array *b, t_array *subsqnc);
+int		calculate_percent(t_array *a, t_array *b, t_array *subsqnc,
+			int counter);
 
 /*	MOVES FOR A	*/
-void	rotate_index_and_push_to_a(t_array *a, t_array *b, int index);
+void	rotate_index_and_push_to_a(t_array *a, t_array *b, int index, int push);
 void	rotate_to_bottom_and_push(t_array *a, t_array *b, int index);
 void	rotate_highest_to_bottom_and_push(t_array *a, t_array *b, int index);
 

@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 20:48:11 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/03 17:19:57 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/15 17:18:53 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	find_best_spot_2(t_array *a, t_array *b)
 		}
 		if ((b->arr[0] > a->arr[i]) && (b->arr[0] < a->arr[i + 1]))
 		{
-			rotate_index_and_push_to_a(a, b, i + 1);
+			rotate_index_and_push_to_a(a, b, i + 1, 1);
 			return ;
 		}
 		i++;

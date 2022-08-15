@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 20:47:58 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/14 22:49:26 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/15 19:47:26 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,8 @@ void	take_best_path(t_array *a, t_array *b)
 //	5. Keep refining the process of picking and their cost involved.
 //	6. Like you can add cost of moving into B and out of A.
 //	7. You can track for both bottom half and upper half of s_m elements.
-void	sort_into_b(t_array *a, t_array *b, t_array *subsqnc)
+void	sort_into_b(t_array *a, t_array *b, t_array *subsqnc,
+		int counter)
 {
 	t_array		*m;
 	t_array		*sorted_m;
@@ -116,12 +117,12 @@ void	sort_into_b(t_array *a, t_array *b, t_array *subsqnc)
 	int			percent;
 
 	m = calculate_m(a, subsqnc);
-	print_array(m->arr, m->size, "M");
+	if (m->size == 0)
+		return ;
 	sorted_m = copy_and_sort(m);
-	print_array(sorted_m->arr, sorted_m->size, "Sorted M");
-	percent = calculate_percent(a, b, subsqnc);
+	percent = calculate_percent(a, b, subsqnc, counter);
 	items_to_move = element_count(m, sorted_m, percent);
-	move_items_to_b(a, b, items_to_move);
+	move_items_to_b(a, b, items_to_move, subsqnc);
 	free(items_to_move->arr);
 	free(items_to_move);
 	free(m->arr);

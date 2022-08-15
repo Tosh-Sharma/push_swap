@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 13:37:24 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/14 23:39:55 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/15 16:52:52 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,9 @@ t_array	*element_count(t_array *input, t_array *sorted_input, int percent)
 
 	first = slice_array(sorted_input, 0,
 			sorted_input->size * percent / 100);
-	print_array(first->arr, first->size, "first section");
 	last = slice_array(sorted_input,
 			sorted_input->size - 1 - (sorted_input->size * percent / 100),
 			sorted_input->size - 1);
-	print_array(last->arr, last->size, "last section");
 	res = get_count_of_elements(input, first, last, percent);
 	free(first->arr);
 	free(last->arr);

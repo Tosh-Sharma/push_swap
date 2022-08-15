@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 17:50:44 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/14 23:39:12 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/15 14:08:28 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ t_array	*init_array(int size, int reset_size)
 		res->size = 0;
 	else
 		res->size = size;
-	res->arr = (int *)malloc(sizeof(int) * res->size);
+	res->arr = (int *)malloc(sizeof(int) * size);
 	return (res);
 }
