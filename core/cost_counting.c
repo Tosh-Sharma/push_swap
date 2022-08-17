@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 13:37:24 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/15 16:52:52 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/17 20:42:04 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ t_array	*get_count_of_elements(t_array *input, t_array *first,
 // Get last 20% of sorted input and detect matches in
 // first and last 20% of input.
 // Return the elements found.
-t_array	*element_count(t_array *input, t_array *sorted_input, int percent)
+t_array	*element_count(t_array *input, t_array *sorted_input, int percent,
+		int counter)
 {
 	t_array	*first;
 	t_array	*last;

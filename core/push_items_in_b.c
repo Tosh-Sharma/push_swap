@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 20:47:58 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/15 19:47:26 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/17 22:08:23 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,35 +98,4 @@ void	take_best_path(t_array *a, t_array *b)
 	}
 	calculate_min_max(b, &min, &max);
 	place_in_position(a, b, &min, &max);
-}
-
-//	Algorithm to sort data into B in the most efficient manner
-//	1. m = n - l1
-//	2. sorted_m = sorted "m"
-//	3. Calculate most of first/last 20% of s_m in first/last 20% of m.
-//	4. Pick whichever one wins.
-//	5. Keep refining the process of picking and their cost involved.
-//	6. Like you can add cost of moving into B and out of A.
-//	7. You can track for both bottom half and upper half of s_m elements.
-void	sort_into_b(t_array *a, t_array *b, t_array *subsqnc,
-		int counter)
-{
-	t_array		*m;
-	t_array		*sorted_m;
-	t_array		*items_to_move;
-	int			percent;
-
-	m = calculate_m(a, subsqnc);
-	if (m->size == 0)
-		return ;
-	sorted_m = copy_and_sort(m);
-	percent = calculate_percent(a, b, subsqnc, counter);
-	items_to_move = element_count(m, sorted_m, percent);
-	move_items_to_b(a, b, items_to_move, subsqnc);
-	free(items_to_move->arr);
-	free(items_to_move);
-	free(m->arr);
-	free(m);
-	free(sorted_m->arr);
-	free(sorted_m);
 }

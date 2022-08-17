@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:25:16 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/15 19:46:51 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/17 21:49:31 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,11 @@ int	main(int argc, char **argv)
 	t_array	*a;
 	t_array	*subsqnc;
 	t_array	*b;
-	int		counter;
 
 	a = initialize_input(argv, argc - 1);
 	b = initialize_stack_b(a);
-	counter = 0;
-	while (1)
-	{
-		subsqnc = super_lis(a);
-		sort_into_b(a, b, subsqnc, counter);
-		if (subsqnc->size == a->size)
-			break ;
-		counter++;
-	}
+	subsqnc = super_lis(a);
+	sort_into_b(a, b, subsqnc);
 	merge_stacks(a, b);
 	return (0);
 }
