@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:43:19 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/17 21:56:50 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/18 17:30:36 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,7 @@ void	place_in_position(t_array *a, t_array *b,
 t_array	*super_lis(t_array *a);
 t_array	*calculate_m(t_array *a, t_array *subsqnc);
 t_array	*copy_and_sort(t_array *array);
-void	move_items_to_b(t_array *a, t_array *b, t_array *to_move,
-			t_array *subsqnc);
+void	move_items_to_b(t_array *a, t_array *b, t_array *to_move);
 t_array	*element_count(t_array *input, t_array *sorted_input, int percent);
 t_array	*element_count2(t_array *input, t_array *sorted_input, int percent,
 			int counter);
@@ -66,7 +65,7 @@ int		arr_cntns(t_array *src, int input);
 int		array_contains_index(t_array *src, int input, int start, int end);
 t_array	*slice_array(t_array *input, int start, int end);
 t_array	*init_array(int size, int reset_size);
-int		calculate_percent(t_array *a, t_array *b, t_array *subsqnc);
+int		calculate_percent(t_array *a, t_array *b);
 
 /*	MOVES FOR A	*/
 void	rotate_index_and_push_to_a(t_array *a, t_array *b, int index, int push);

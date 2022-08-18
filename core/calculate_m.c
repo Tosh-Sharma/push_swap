@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:03:05 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/17 20:40:26 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/18 18:03:16 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,16 @@ t_array	*calculate_m(t_array *a, t_array *subsqnc)
 	return (m);
 }
 
-int	calculate_percent(t_array *a, t_array *b, t_array *subsqnc, int counter)
+// TODO: Experiment with the percentage for 500 numbers between 10-15.
+int	calculate_percent(t_array *a, t_array *b)
 {
 	int	percent;
 
-	printf("Percentage of subsqnc is %d\n",
-		subsqnc->size * 100 / (a->size + b->size));
-	if (a->size + b->size < 100)
+	if (a->size + b->size < 70)
 		percent = 30;
 	else if (a->size + b->size <= 200)
-		percent = 20;
-	else if (a->size + b->size <= 500)
-		percent = 10;
+		percent = 25;
+	else
+		percent = 15;
 	return (percent);
 }
