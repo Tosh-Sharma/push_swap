@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 21:57:11 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/18 18:01:41 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/19 18:27:51 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,8 @@ void	free_elements(t_array **elements, t_array *m, t_array *sorted_m,
 		i++;
 	}
 	free(elements);
-	free(m->arr);
-	free(m);
-	free(sorted_m->arr);
-	free(sorted_m);
+	free_array(m);
+	free_array(sorted_m);
 }
 
 t_array	**get_chunks_to_insert(t_array *sorted_m, int percent)

@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_array.c                                       :+:      :+:    :+:   */
+/*   utils_2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/14 17:50:44 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/18 18:25:37 by tsharma          ###   ########.fr       */
+/*   Created: 2022/08/19 18:17:31 by tsharma           #+#    #+#             */
+/*   Updated: 2022/08/19 18:19:17 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_array	*init_array(int size, int reset_size)
+int	find_smallest_element(t_array *costs)
 {
-	t_array	*res;
+	int	min_index;
+	int	i;
 
-	res = (t_array *)malloc(sizeof(t_array));
-	if (reset_size == 1)
-		res->size = 0;
-	else
-		res->size = size;
-	res->arr = (int *)malloc(sizeof(int) * size);
-	return (res);
-}
-
-void	free_array(t_array *arr)
-{
-	free(arr->arr);
-	free(arr);
+	i = 1;
+	min_index = 0;
+	while (i < costs->size)
+	{
+		if (costs->arr[i] < costs->arr[min_index])
+			min_index = i;
+		i++;
+	}
+	return (min_index);
 }

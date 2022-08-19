@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:25:16 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/17 21:49:31 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/18 18:26:16 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,7 @@ t_array	*initialize_stack_b(t_array *a)
 	b->arr = (int *)malloc(sizeof(int) * a->size);
 	if (!b->arr)
 	{
-		free(a->arr);
-		free(a);
+		free_array(a);
 		exit(0);
 	}
 	b->size = 0;

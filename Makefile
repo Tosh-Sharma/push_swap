@@ -67,6 +67,7 @@ SRCS = 	push_swap.c \
 		stack_moves/rotate.c \
 		stack_moves/rev_rotate.c \
 		helpers/utils.c \
+		helpers/utils_2.c \
 		helpers/init_array.c \
 		helpers/print_array.c \
 		helpers/rev_array.c \

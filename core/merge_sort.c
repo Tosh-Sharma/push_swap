@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 20:13:32 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/14 16:01:47 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/18 18:27:08 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,8 @@ typedef struct ijk
 
 void	free_memory(t_array *left, t_array *right, t_ijk *ijk)
 {
-	free(left->arr);
-	free(right->arr);
-	free(left);
-	free(right);
+	free_array(left);
+	free_array(right);
 	free(ijk);
 }
 

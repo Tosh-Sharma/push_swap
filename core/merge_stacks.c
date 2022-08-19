@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 20:48:11 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/15 17:18:53 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/19 18:27:02 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,6 @@ void	merge_stacks(t_array *a, t_array *b)
 		rotate_n_times(a, min.index, 'a');
 	else
 		rev_rotate_n_times(a, a->size - min.index, 'a');
-	free(a->arr);
-	free(b->arr);
-	free(a);
-	free(b);
+	free_array(a);
+	free_array(b);
 }
