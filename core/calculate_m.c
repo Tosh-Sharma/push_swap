@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:03:05 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/18 18:03:16 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/24 14:11:20 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ int	calculate_percent(t_array *a, t_array *b)
 	if (a->size + b->size < 70)
 		percent = 30;
 	else if (a->size + b->size <= 200)
-		percent = 25;
+		percent = 20;
 	else
-		percent = 15;
+		percent = 10;
 	return (percent);
 }

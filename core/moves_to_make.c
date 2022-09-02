@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 20:10:05 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/19 18:15:45 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/24 13:35:16 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ void	move_items_to_b(t_array *a, t_array *b, t_array *to_move)
 		}
 		index = find_cheapest_index(indexes, a->size);
 		rotate_index_and_push_to_a(a, b, index, 0);
-		take_best_path(a, b);
+		push_to_b(a, b);
+		// take_best_path(a, b);
 		free_array(indexes);
 		j++;
 	}

@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:57:57 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/14 19:15:41 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/08/24 13:56:06 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,8 @@ t_array	*super_lis(t_array *a)
 
 	superset = (t_array **)malloc(sizeof(t_array *) * a->size);
 	result_set = (t_array **)malloc(sizeof(t_array *) * a->size);
+	subsqnc = (t_array *)malloc(sizeof(t_array) * a->size);
+	subsqnc->arr = (int *)malloc(sizeof(int) * 1);
 	i = 0;
 	while (i < a->size)
 	{
@@ -125,7 +127,9 @@ t_array	*super_lis(t_array *a)
 		result_set[i] = fnd_lngst_sbsqnc(superset[i]);
 		i++;
 	}
-	subsqnc = pick_longest_sequence(result_set, a->size);
+	// subsqnc = pick_longest_sequence(result_set, a->size);
+	subsqnc->size = 1;
+	subsqnc->arr[0] = a->arr[0];
 	free_everything(superset, result_set, a->size);
 	return (subsqnc);
 }
