@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:25:16 by tsharma           #+#    #+#             */
-/*   Updated: 2022/11/07 19:53:15 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/11/07 20:20:26 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ t_array	*check_for_different_style(char **argv);
 // TODO: If subsqnc size = arr size, check if smallest element is first or not
 // TODO: Take care of the problem of exit in case of
 // implementation of circular linked list LIS detection.
+// TODO: INPUT NOT WORKING: 8 9 10 -4 -1 -3 -7 -6 -10 6 0 3 1 -8 -9 4 -2 -5 7 2 5
 int	main(int argc, char **argv)
 {
 	t_array	*a;
