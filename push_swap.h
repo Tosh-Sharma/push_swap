@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:43:19 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/19 18:25:02 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/11/07 19:14:58 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ int		calculate_percent(t_array *a, t_array *b);
 int		array_contains_index(t_array *src, int input, int start, int end);
 int		find_cheapest_index(t_array *input, int size);
 int		find_smallest_element(t_array *costs);
+void	init_numbers(int *count, int *i, int *j);
 
 /*	MOVES FOR A	*/
 void	rotate_index_and_push_to_a(t_array *a, t_array *b, int index, int push);

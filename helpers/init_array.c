@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 17:50:44 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/18 18:25:37 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/11/07 19:48:43 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,11 @@ void	free_array(t_array *arr)
 {
 	free(arr->arr);
 	free(arr);
+}
+
+void	init_numbers(int *count, int *i, int *j)
+{
+	*count = 0;
+	*i = 0;
+	*j = 0;
 }

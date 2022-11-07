@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:25:16 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/18 18:26:16 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/11/07 19:53:15 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 t_array	*initialize_input(char **argv, int count);
 t_array	*initialize_stack_b(t_array *a);
+t_array	*check_for_different_style(char **argv);
 
 // FOR 100 inputs
 // ./push_swap `ruby -e "puts (-50..50).to_a.shuffle.join(' ')"`
@@ -38,9 +39,6 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-// TODO: Handle inputs in the second style
-// Everything is in one single string and you need
-// to use ft_split on the code.
 t_array	*initialize_input(char **argv, int count)
 {
 	int		i;
@@ -49,7 +47,8 @@ t_array	*initialize_input(char **argv, int count)
 	t_array	*a;
 
 	i = 1;
-	a = (t_array *)malloc(sizeof(t_array));
+	if (count == 1)
+		return (check_for_different_style(argv));
 	numbers = (int *)malloc(sizeof(int) * count);
 	while (i <= count)
 	{
@@ -63,6 +62,7 @@ t_array	*initialize_input(char **argv, int count)
 		}
 		i++;
 	}
+	a = (t_array *)malloc(sizeof(t_array));
 	a->arr = numbers;
 	a->size = count;
 	return (a);
@@ -81,6 +81,52 @@ t_array	*initialize_stack_b(t_array *a)
 	}
 	b->size = 0;
 	return (b);
+}
+
+t_array	*diffstyle_two(int *numbers, int count, char **input)
+{
+	t_array	*a;
+	int		i;
+
+	a = (t_array *)malloc(sizeof(t_array));
+	a->size = count;
+	a->arr = numbers;
+	i = 0;
+	while (input[i] != NULL)
+	{
+		free(input[i]);
+		i++;
+	}
+	free(input);
+	return (a);
+}
+
+t_array	*check_for_different_style(char **argv)
+{
+	char	**input;
+	int		count;
+	int		*numbers;
+	int		i;
+	int		j;
+
+	input = ft_split(argv[1], ' ');
+	init_numbers(&count, &i, &j);
+	while (input[count] != NULL)
+		count++;
+	numbers = (int *)malloc(sizeof(int) * count);
+	while (i < count)
+	{
+		numbers[i] = ft_superatoi(input[i], numbers);
+		j = 0;
+		while (j < i - 1)
+		{
+			if (numbers[j] == numbers[i - 1])
+				exit_program(numbers);
+			j++;
+		}
+		i++;
+	}
+	return (diffstyle_two(numbers, count, input));
 }
 
 // Other logics to consider.

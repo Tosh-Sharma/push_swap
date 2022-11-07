@@ -6,13 +6,12 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 15:04:46 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/19 18:18:31 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/11/07 19:35:43 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-// TODO: Error goes on Standard Error (FD = 2 and not 1)
 void	exit_program(int *a)
 {
 	free(a);
