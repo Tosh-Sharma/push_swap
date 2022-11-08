@@ -62,6 +62,8 @@ SRCS = 	push_swap.c \
 		core/copy_and_sort.c \
 		core/sorting_in_b.c \
 		core/moves_to_make.c \
+		core/sort_three_numbers.c \
+		core/sort_five_numbers.c \
 		stack_moves/swap.c \
 		stack_moves/push.c \
 		stack_moves/rotate.c \

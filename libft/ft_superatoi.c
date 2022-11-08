@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 18:12:43 by tsharma           #+#    #+#             */
-/*   Updated: 2022/07/25 15:34:12 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/11/08 15:48:59 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int	calculate_number_super(const char *str, int is_neg, int *a)
 
 	i = 0;
 	num = 0;
+	if (str[i] == 0)
+		exit_program(a);
 	while (str[i] >= 48 && str[i] <= 57 && str[i] != '\0')
 	{
 		num = (num * 10) + (str[i] - 48);

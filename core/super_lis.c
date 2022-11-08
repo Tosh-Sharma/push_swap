@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:57:57 by tsharma           #+#    #+#             */
-/*   Updated: 2022/11/07 17:32:58 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/11/08 11:07:17 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,8 +128,6 @@ t_array	*super_lis(t_array *a)
 		i++;
 	}
 	subsqnc = pick_longest_sequence(result_set, a->size);
-	subsqnc->size = 1;
-	subsqnc->arr[0] = a->arr[0];
 	free_everything(superset, result_set, a->size);
 	return (subsqnc);
 }

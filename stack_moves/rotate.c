@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 17:57:44 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/15 18:44:22 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/11/08 13:37:39 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	rotate_array(t_array *array)
 	array->arr[array->size - 1] = temp;
 }
 
+/* WITH PRINT */
 void	rotate_a(t_array *a)
 {
 	rotate_array(a);
@@ -46,6 +47,7 @@ void	rotate_both(t_array *a, t_array *b)
 	ft_putstr_fd("rr\n", 1);
 }
 
+// // WITHOUT PRINT
 // void	rotate_a(t_array *a)
 // {
 // 	rotate_array(a);

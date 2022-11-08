@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:43:19 by tsharma           #+#    #+#             */
-/*   Updated: 2022/11/07 19:14:58 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/11/08 18:25:53 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ typedef struct s_d_and_c
 }	t_d_and_c;
 
 /*	CORE ALGO	*/
+void	sort_three_numbers(t_array *a);
+void	sort_five_numbers(t_array *a, t_array *b);
 t_array	*fnd_lngst_sbsqnc(t_array *a);
 void	sort_into_b(t_array *a, t_array *b, t_array *subsqnc);
 void	merge_stacks(t_array *a, t_array *b);
@@ -70,7 +72,7 @@ void	init_numbers(int *count, int *i, int *j);
 
 /*	MOVES FOR A	*/
 void	rotate_index_and_push_to_a(t_array *a, t_array *b, int index, int push);
-void	rotate_to_bottom_and_push(t_array *a, t_array *b, int index);
+void	rotate_to_top_and_push(t_array *a, t_array *b, int index);
 void	rotate_highest_to_bottom_and_push(t_array *a, t_array *b, int index);
 
 /*	MOVES FOR B	*/
