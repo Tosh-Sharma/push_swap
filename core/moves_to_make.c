@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 20:10:05 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/24 13:35:16 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/11/09 17:36:07 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ int	get_index_of_element(t_array *a, int element)
 // 2. Check where is the closest element that needs to be moved from the array.
 // 3. Go to element and eject into B.
 // 4. Repeat until no elements left.
-// TODO: What you need here is the function
-//		rotate_index_and_push_to_a(a, b, index, 0);
 void	move_items_to_b(t_array *a, t_array *b, t_array *to_move)
 {
 	int		i;
@@ -52,8 +50,7 @@ void	move_items_to_b(t_array *a, t_array *b, t_array *to_move)
 		}
 		index = find_cheapest_index(indexes, a->size);
 		rotate_index_and_push_to_a(a, b, index, 0);
-		push_to_b(a, b);
-		// take_best_path(a, b);
+		take_best_path(a, b);
 		free_array(indexes);
 		j++;
 	}

@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:25:16 by tsharma           #+#    #+#             */
-/*   Updated: 2022/11/08 18:25:45 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/11/09 17:35:34 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,8 @@ t_array	*check_for_different_style(char **argv);
 
 // FOR 100 inputs
 // ./push_swap `ruby -e "puts (-50..50).to_a.shuffle.join(' ')"`
-// FOR 30 inputs
-// ./push_swap `ruby -e "puts (-15..15).to_a.shuffle.join(' ')"`
 // For the visualizer
 // python3 pyviz.py `ruby -e "puts (-50..50).to_a.shuffle.join(' ')"`
-// TODO: If subsqnc size = arr size, check if smallest element is first or not
-// TODO: Take care of the problem of exit in case of
-// implementation of circular linked list LIS detection.
 int	main(int argc, char **argv)
 {
 	t_array	*a;
@@ -124,17 +119,15 @@ t_array	*check_for_different_style(char **argv)
 	int		j;
 
 	input = ft_split(argv[1], ' ');
-	init_numbers(&count, &i, &j);
-	while (input[count] != NULL)
-		count++;
+	init_numbers(&count, &i, &j, input);
 	numbers = (int *)malloc(sizeof(int) * count);
 	while (i < count)
 	{
 		numbers[i] = ft_superatoi(input[i], numbers);
 		j = 0;
-		while (j < i - 1)
+		while (j < i)
 		{
-			if (numbers[j] == numbers[i - 1])
+			if (numbers[j] == numbers[i])
 				exit_program(numbers);
 			j++;
 		}

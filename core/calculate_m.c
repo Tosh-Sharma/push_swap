@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:03:05 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/24 14:11:20 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/11/09 17:35:41 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ t_array	*calculate_m(t_array *a, t_array *subsqnc)
 	return (m);
 }
 
-// TODO: Experiment with the percentage for 500 numbers between 10-15.
 int	calculate_percent(t_array *a, t_array *b)
 {
 	int	percent;
