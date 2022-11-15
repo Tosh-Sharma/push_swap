@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:57:57 by tsharma           #+#    #+#             */
-/*   Updated: 2022/11/08 11:07:17 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/11/15 19:40:04 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ void	free_everything(t_array **superset, t_array **result_set, int size)
 	{
 		free(superset[i]->arr);
 		free(result_set[i]->arr);
+		free(superset[i]);
+		free(result_set[i]);
 		i++;
 	}
 	free(superset);
@@ -65,7 +67,6 @@ t_array	*return_array_from_list(t_array **result_set, int size, int max_length)
 {
 	int		i;
 	int		j;
-	int		*array;
 	t_array	*result;
 
 	i = 0;
@@ -76,13 +77,12 @@ t_array	*return_array_from_list(t_array **result_set, int size, int max_length)
 		if (result_set[i]->size == max_length)
 		{
 			result->size = max_length;
-			array = (int *)malloc(sizeof(int) * max_length);
+			result->arr = (int *)malloc(sizeof(int) * max_length);
 			while (j < max_length)
 			{
-				array[j] = result_set[i]->arr[j];
+				result->arr[j] = result_set[i]->arr[j];
 				j++;
 			}
-			result->arr = array;
 			break ;
 		}
 		i++;
@@ -118,8 +118,6 @@ t_array	*super_lis(t_array *a)
 
 	superset = (t_array **)malloc(sizeof(t_array *) * a->size);
 	result_set = (t_array **)malloc(sizeof(t_array *) * a->size);
-	subsqnc = (t_array *)malloc(sizeof(t_array) * a->size);
-	subsqnc->arr = (int *)malloc(sizeof(int) * 1);
 	i = 0;
 	while (i < a->size)
 	{

@@ -6,7 +6,7 @@
 /*   By: tsharma <tsharma@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 21:57:11 by tsharma           #+#    #+#             */
-/*   Updated: 2022/08/19 18:27:51 by tsharma          ###   ########.fr       */
+/*   Updated: 2022/11/15 19:46:47 by tsharma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,7 @@ void	free_elements(t_array **elements, t_array *m, t_array *sorted_m,
 	i = 0;
 	while (i < get_size(percent))
 	{
-		free(elements[i]->arr);
-		free(elements[i]);
+		free_array(elements[i]);
 		i++;
 	}
 	free(elements);
@@ -97,5 +96,6 @@ void	sort_into_b(t_array *a, t_array *b, t_array *subsqnc)
 		move_items_to_b(a, b, elements[counter]);
 		counter++;
 	}
+	free_array(subsqnc);
 	free_elements(elements, m, sorted_m, percent);
 }
